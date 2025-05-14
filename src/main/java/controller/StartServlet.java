@@ -4,7 +4,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "StartServlet", value = "/StartServlet")
+@WebServlet(name = "StartServlet", value = "/",  loadOnStartup = 0)
 public class StartServlet extends HttpServlet {
 
     @Override
