@@ -1,0 +1,36 @@
+.site-footer {
+    background-color: #F5F5F5;
+    padding: 50px 20px;
+    text-align: center;
+    margin-top: 100px;
+    font-family: Kai;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-logo img {
+    height: 60px;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.footer-logo img:hover {
+    filter: grayscale(0%);
+}
+
+.footer-info {
+    max-width: 500px;
+}
+
+.footer-info p {
+    margin: 2px 0;
+    font-size: 17px;
+    color: #333;
+    text-align: left;
+}
