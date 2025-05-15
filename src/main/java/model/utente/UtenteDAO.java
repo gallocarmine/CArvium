@@ -47,7 +47,7 @@ public class UtenteDAO {
         return users;
     }
 
-    public Utente doRetrieveByUsernamePassword(String email, String password){
+    public Utente doRetrieveByEmailPassword(String email, String password){
 
         Utente user = null;
 
