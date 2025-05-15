@@ -11,7 +11,7 @@ public class RicambiDAO {
 
     public List<Ricambi> doRetrieveAll() {
 
-        List<Ricambi> ricambi = new ArrayList<>();
+        List<Ricambi> spares = new ArrayList<>();
 
         try (Connection con = new ConPool().getConnection()) {
 
@@ -30,8 +30,8 @@ public class RicambiDAO {
                 int idModelloAuto = rs.getInt("ID_ModelloAuto");
                 int idMarcaAuto = rs.getInt("ID_MarcaAuto");
 
-                Ricambi ricambio = new Ricambi(id, nome, prezzo, categoria, anno, pathname, idModelloAuto, idMarcaAuto);
-                ricambi.add(ricambio);
+                Ricambi spare = new Ricambi(id, nome, prezzo, categoria, anno, pathname, idModelloAuto, idMarcaAuto);
+                spares.add(spare);
             }
 
             rs.close();
@@ -41,7 +41,7 @@ public class RicambiDAO {
             System.err.println(e.getMessage());
         }
 
-        return ricambi;
+        return spares;
     }
 }
 
