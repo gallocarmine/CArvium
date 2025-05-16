@@ -1,6 +1,7 @@
 package model.ricambi;
 
 import model.ConPool;
+import model.carrello.Carrello;
 
 import java.sql.*;
 import java.time.LocalDateTime;

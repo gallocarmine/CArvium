@@ -6,6 +6,8 @@ public class Carrello {
     private double costoTotale;
     private int quantita;
 
+    public Carrello() { }
+
     public Carrello(int ID, double costoTotale, int quantita) {
 
         this.ID = ID;
