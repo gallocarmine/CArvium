@@ -15,17 +15,21 @@ public class Utente {
     private int civico;
     private int CAP;
     private int IDCarrello;
+    private boolean admin;
 
-    public Utente(int ID, String nome, String cognome, String email, String password, String via, int civico, int CAP, int IDCarrello) {
+    public Utente(){ }
+
+    public Utente(int ID, String nome, String cognome, String email, String password, String via, int civico, int CAP, boolean admin, int IDCarrello) {
         this.ID = ID;
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
-        setPassword(password);
+        this.password = password;
         this.via = via;
         this.civico = civico;
         this.CAP = CAP;
         this.IDCarrello = IDCarrello;
+        this.admin = admin;
     }
 
     public int getID() {
@@ -63,6 +67,8 @@ public class Utente {
     public int getIDCarrello() {
         return IDCarrello;
     }
+
+    public boolean getAdmin() { return admin; }
 
 
     public void setID(int ID) {
@@ -107,6 +113,8 @@ public class Utente {
     public void setCAP(int CAP) {
         this.CAP = CAP;
     }
+
+    public void setAdmin(boolean admin) { this.admin = admin; }
 
     public void setIDCarrello(int IDCarrello) {
         this.IDCarrello = IDCarrello;

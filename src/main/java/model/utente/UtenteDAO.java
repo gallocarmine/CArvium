@@ -31,9 +31,10 @@ public class UtenteDAO {
                 String via = rs.getString("Via");
                 int civico = rs.getInt("Civico");
                 int CAP = rs.getInt("CAP");
+                boolean admin = rs.getBoolean("Admin");
                 int idCarrello = rs.getInt("ID_Carrello");
 
-                Utente user = new Utente(id, nome, cognome, email, password, via, civico, CAP, idCarrello);
+                Utente user = new Utente(id, nome, cognome, email, password, via, civico, CAP, admin, idCarrello);
                 users.add(user);
             }
 
@@ -68,8 +69,9 @@ public class UtenteDAO {
                 int civico = rs.getInt("Civico");
                 int CAP = rs.getInt("CAP");
                 int idCarrello = rs.getInt("ID_Carrello");
+                boolean admin = rs.getBoolean("Admin");
 
-                user = new Utente(id, nome, cognome, email, password, via, civico, CAP, idCarrello);
+                user = new Utente(id, nome, cognome, email, password, via, civico, CAP, admin, idCarrello);
             }
 
             rs.close();
@@ -89,7 +91,7 @@ public class UtenteDAO {
 
         try(Connection con = new ConPool().getConnection()){
 
-            String sql = "INSERT INTO Utente (Nome,Cognome,Email,Password,Via,Civico,CAP,ID_Carrello) VALUES (?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO Utente (Nome, Cognome, Email, Password, Via, Civico, CAP, Admin, ID_Carrello) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, user.getNome());
             ps.setString(2, user.getCognome());
@@ -98,7 +100,8 @@ public class UtenteDAO {
             ps.setString(5, user.getVia());
             ps.setInt(6, user.getCivico());
             ps.setInt(7, user.getCAP());
-            ps.setInt(8, user.getIDCarrello());
+            ps.setBoolean(8, user.getAdmin());
+            ps.setInt(9, user.getIDCarrello());
 
             result = ps.executeUpdate();
         }

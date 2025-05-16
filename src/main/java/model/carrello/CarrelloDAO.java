@@ -38,6 +38,31 @@ public class CarrelloDAO {
         return carts;
     }
 
+    public int doRetrieveLastID(){
+
+        int id = 0;
+
+        try(Connection con = new ConPool().getConnection()){
+
+            String sql = "SELECT ID FROM Carrello ORDER BY ID DESC LIMIT 1";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while(rs.next()){
+
+                id = rs.getInt("ID");
+            }
+
+            rs.close();
+        }
+        catch(SQLException e){
+
+            System.err.println(e.getMessage());
+        }
+
+        return id;
+    }
+
 
     public int doSave(Carrello cart){
 
@@ -45,7 +70,7 @@ public class CarrelloDAO {
 
         try(Connection con = new ConPool().getConnection()){
 
-            String sql = "INSERT INTO User (CostoTotale, Quantità) VALUES (?,?)";
+            String sql = "INSERT INTO Carrello (CostoTotale, Quantità) VALUES (?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setDouble(1, cart.getCostoTotale());
             ps.setInt(2, cart.getQuantita());
