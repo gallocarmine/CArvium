@@ -2,26 +2,26 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>singin</title>
+    <title>Singin</title>
 </head>
 <body>
 
 <div>
     <form action = "SigninServlet" method = "POST">
-        <label for = "firstname">First Name</label>
-        <input type = "text" id = "firstname" name = "firstname" required>
-        <label for = "lastname">Last Name</label>
-        <input type = "text" id = "lastname" name = "lastname" required><br><br>
-        <label for = "email">Email</label>
-        <input type = "email" id = "email" name = "email" required>
-        <label for = "password">Password</label>
-        <input type = "password" id = "password" name = "pass" required><br><br>
-        <label for = "street">Street</label>
-        <input type = "text" id = "street" name = "street">
-        <label for = "civic">Civ</label>
-        <input type = "number" id = "civic" name = "civic" max = "1000">
-        <label for = "cap">CAP</label>
-        <input type = "number" id = "cap" name = "cap" max= "100000"><br><br>
+        <label for = "firstname"></label>
+        <input type = "text" id = "firstname" name = "firstname" placeholder = "First Name" required >
+        <label for = "lastname"></label>
+        <input type = "text" id = "lastname" name = "lastname" placeholder = "Last Name" required><br><br>
+        <label for = "email"></label>
+        <input type = "email" id = "email" name = "email" placeholder = "Email" required>
+        <label for = "password"></label>
+        <input type = "password" id = "password" name = "pass" placeholder = "Password" required><br><br>
+        <label for = "street"></label>
+        <input type = "text" id = "street" name = "street" placeholder = "Street" required>
+        <label for = "civic"></label>
+        <input type = "number" id = "civic" name = "civic" max = "1000" placeholder = "Civic" required>
+        <label for = "cap"></label>
+        <input type = "number" id = "cap" name = "cap" max= "100000" placeholder = "CAP" required><br><br>
         <input type = "submit" value = "Sing In">
     </form>
 </div>

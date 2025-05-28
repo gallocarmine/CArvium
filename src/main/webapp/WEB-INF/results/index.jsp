@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Homepage</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/navbar.css">
+    <title>HomePage</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/navbar-start.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/card.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/footer.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -12,9 +12,9 @@
 <body>
 
 <!-- Navbar-->
-<div class="navbar">
+<div class="navbar-index">
     <a href="${pageContext.request.contextPath}/StartServlet" class="logo">
-        <img src="${pageContext.request.contextPath}/images/logo.png" alt="Logo">
+        <img src="${pageContext.request.contextPath}/images/white-logo.png" alt="Logo">
     </a>
     <div class="login-icon">
         <a href="${pageContext.request.contextPath}/LoginServlet">
@@ -31,13 +31,13 @@
 <!-- Cards -->
 <div class="card-container">
     <div class="card">
-        <a href="${pageContext.request.contextPath}/FirstServlet">
-            <img src="${pageContext.request.contextPath}/images/car.png" alt="Prima pagina">
+        <a href="${pageContext.request.contextPath}/CarServlet">
+            <img src="${pageContext.request.contextPath}/images/car.png" alt="Car">
         </a>
     </div>
     <div class="card">
-        <a href="${pageContext.request.contextPath}/SecondServlet">
-            <img src="${pageContext.request.contextPath}/images/shop.png" alt="Seconda pagina">
+        <a href="${pageContext.request.contextPath}/ShopServlet">
+            <img src="${pageContext.request.contextPath}/images/shop.png" alt="Shop">
         </a>
     </div>
 </div>
@@ -46,7 +46,7 @@
 <footer class="site-footer">
     <div class="footer-content">
         <div class="footer-logo">
-            <img src="${pageContext.request.contextPath}/images/logo.svg" alt="Logo Footer">
+            <img src="${pageContext.request.contextPath}/images/black-logo.png" alt="Logo Footer">
         </div>
         <div class="footer-info">
             <p>&copy; 2025 CArvium. All rights reserved.</p>
@@ -55,5 +55,6 @@
         </div>
     </div>
 </footer>
+
 </body>
 </html>

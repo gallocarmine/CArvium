@@ -1,4 +1,4 @@
-package controller;
+package controller.account;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -15,6 +15,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        boolean invalid = true;
 
         if(request.getParameterMap().isEmpty()){
 
@@ -26,26 +27,34 @@ public class LoginServlet extends HttpServlet {
             String email = request.getParameter("email");
             String password = request.getParameter("pass");
 
-            if(email != null && password != null) {
+            if(isValid(email) && isValid(password)) {
 
                 Utente user = new UtenteDAO().doRetrieveByEmailPassword(email, password);
 
                 if(user != null) {
 
+                    invalid = false;
+
                     HttpSession session = request.getSession();
                     session.setAttribute("user", user);
                 }
-                else{
+            }
 
-                    request.setAttribute("error", "Email or password incorrect");
-                    request.getRequestDispatcher("/WEB-INF/results/login.jsp").forward(request, response);
-                }
+            if(invalid){
+
+                request.setAttribute("error", "Email or password incorrect");
+                request.getRequestDispatcher("/WEB-INF/results/login.jsp").forward(request, response);
             }
 
             String url = "/WEB-INF/results/index.jsp";
             RequestDispatcher dispatcher = request.getRequestDispatcher(url);
             dispatcher.forward(request, response);
         }
+    }
+
+    private boolean isValid(String parameter){
+
+        return parameter != null && !parameter.trim().isEmpty();
     }
 
 
