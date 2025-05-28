@@ -3,15 +3,15 @@
 
 <html>
 <head>
-    <title>login</title>
+    <title>Login</title>
 </head>
 <body>
 
     <form action = "LoginServlet" method = "POST">
-        <label for = "email">Email</label>
-        <input type = "email" id = "email" name = "email" required><br><br>
-        <label for = "password">Password</label>
-        <input type = "password" id = "password" name = "pass" required>
+        <label for = "email"></label>
+        <input type = "email" id = "email" name = "email" placeholder = "Email" required><br><br>
+        <label for = "password"></label>
+        <input type = "password" id = "password" name = "pass" placeholder = "Password" required>
         <input type = "submit" value = "Login">
     </form>
 
