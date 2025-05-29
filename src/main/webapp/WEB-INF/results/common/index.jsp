@@ -14,31 +14,41 @@
 <main class="main-content">
 <!-- Navbar-->
 <div class="navbar">
-    <a href="${pageContext.request.contextPath}/StartServlet" class="logo">
+    <a href="${pageContext.request.contextPath}/common/StartServlet" class="logo">
         <img src="${pageContext.request.contextPath}/images/white-logo.png" alt="Logo">
     </a>
+
     <div class="login-icon">
-        <a href="${pageContext.request.contextPath}/LoginServlet">
             <c:if test = "${empty user}">
-                <i class="bi bi-person-fill" style="font-size: 1.8rem; color: #F5F5F5;"></i>
+                <a href="${pageContext.request.contextPath}/auth/LoginServlet">
+                    <i class="bi bi-person-fill" style="font-size: 1.8rem; color: #F5F5F5;"></i>
+                </a>
             </c:if>
+
+
             <c:if test = "${not empty user}">
                 <i class="bi bi-person-gear" style="font-size: 1.8rem; color: #F5F5F5;"></i>
             </c:if>
-        </a>
+
+        <c:if test = "${not empty user}">
+            <a href="${pageContext.request.contextPath}/auth/LogoutServlet">
+                <i class="bi bi-box-arrow-right"></i>
+            </a>
+        </c:if>
+
     </div>
 </div>
 
 <!-- Cards -->
 <div class="card-container">
     <div class="card">
-        <a href="${pageContext.request.contextPath}/CarServlet">
-            <img src="${pageContext.request.contextPath}/images/car.png" alt="Prima pagina">
+        <a href="${pageContext.request.contextPath}/common/CarServlet">
+            <img src="${pageContext.request.contextPath}/images/car.png" alt="HomeCar">
         </a>
     </div>
     <div class="card">
-        <a href="${pageContext.request.contextPath}/ShopServlet">
-            <img src="${pageContext.request.contextPath}/images/shop.png" alt="Seconda pagina">
+        <a href="${pageContext.request.contextPath}/common/ShopServlet">
+            <img src="${pageContext.request.contextPath}/images/shop.png" alt="HomeShop">
         </a>
     </div>
 </div>

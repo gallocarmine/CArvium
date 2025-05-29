@@ -4,13 +4,13 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "StartServlet", value = "/StartServlet",  loadOnStartup = 0)
+@WebServlet(name = "StartServlet", value = "/common/StartServlet",  loadOnStartup = 0)
 public class StartServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String url = "/WEB-INF/results/index.jsp";
+        String url = "/WEB-INF/results/common/index.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }

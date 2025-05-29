@@ -54,7 +54,7 @@ public class UtenteDAO {
 
         try(Connection con = new ConPool().getConnection()){
 
-            String sql = "SELECT * FROM Utente WHERE Email = ? AND  Password = SHA1(?)";
+            String sql = "SELECT * FROM Utente WHERE Email = ? AND  Password = SHA2(?, 512)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, email);
             ps.setString(2, password);

@@ -8,7 +8,7 @@ import model.utente.UtenteDAO;
 
 import java.io.IOException;
 
-@WebServlet(name = "LoginServlet", value = "/LoginServlet")
+@WebServlet(name = "LoginServlet", value = "/auth/LoginServlet")
 
 public class LoginServlet extends HttpServlet {
 
@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/results/login.jsp").forward(request, response);
             }
 
-            String url = "/WEB-INF/results/index.jsp";
+            String url = "/WEB-INF/results/common/index.jsp";
             RequestDispatcher dispatcher = request.getRequestDispatcher(url);
             dispatcher.forward(request, response);
         }

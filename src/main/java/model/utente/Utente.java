@@ -89,7 +89,7 @@ public class Utente {
 
     public void setPassword(String password) {
         try{
-            MessageDigest digest = MessageDigest.getInstance("SHA-1");
+            MessageDigest digest = MessageDigest.getInstance("SHA-512");
             digest.reset();
 
             digest.update(password.getBytes(StandardCharsets.UTF_8));

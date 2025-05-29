@@ -14,7 +14,7 @@ import model.utente.UtenteDAO;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "SigninServlet", value = "/SigninServlet")
+@WebServlet(name = "SigninServlet", value = "/auth/SigninServlet")
 public class SigninServlet extends HttpServlet {
 
     @Override
@@ -39,7 +39,7 @@ public class SigninServlet extends HttpServlet {
 
 
             if (isValid(firstName) && isValid(lastName)
-                    && isValid(email) && isValid(password)
+                    && isValid(email) && isValid(password) && validatePassword(password)
                     && isValid(street) && isValid(c) && isValid(C)){
 
                 int civic = Integer.parseInt(c);
@@ -110,6 +110,11 @@ public class SigninServlet extends HttpServlet {
     private boolean isValid(String parameter){
 
         return parameter != null && !parameter.trim().isEmpty();
+    }
+
+    private boolean validatePassword(String password){
+
+        return password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$");
     }
 
     @Override
