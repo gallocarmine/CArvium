@@ -6,7 +6,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "CarServlet", value = "/CarServlet")
+@WebServlet(name = "CarServlet", value = "/common/CarServlet")
 public class CarServlet extends HttpServlet {
 
     @Override
@@ -14,10 +14,9 @@ public class CarServlet extends HttpServlet {
 
         if(request.getParameterMap().isEmpty()){
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/home-car.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/common/home-car.jsp");
             dispatcher.forward(request, response);
         }
-
     }
 
     @Override

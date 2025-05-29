@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title>signin</title>
+    <title>Signin</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/signin.css">
 </head>
 <body>
@@ -15,9 +15,9 @@
 
     <div class="login">
 
-        <form action="SigninServlet" method="POST">
+        <form action="${pageContext.request.contextPath}/auth/SigninServlet" method="POST">
 
-            <a href="StartServlet">
+            <a  href="${pageContext.request.contextPath}/common/StartServlet">
                 <img src="${pageContext.request.contextPath}/images/black-logo.png" alt="Logo" class="login-logo">
             </a>
 
@@ -33,7 +33,7 @@
             </div>
             <input type="submit" value="Sign In">
             <div class="divider"><span>OR</span></div>
-            <a class="back" href="LoginServlet">Torna al login</a>
+            <a class="back" href="${pageContext.request.contextPath}/auth/LoginServlet">Back to Login</a>
         </form>
 
         <c:if test="${not empty error}">
