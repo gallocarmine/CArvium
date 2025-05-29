@@ -4,8 +4,8 @@ body {
     background-color: #ffffff;
 }
 
-.navbar-home-car {
-    background-color: #ffffff;
+.navbar-car {
+    background-color: #b0b0b0;
     display: flex;
     justify-content: center;
     position: relative;

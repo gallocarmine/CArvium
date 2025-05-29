@@ -3,16 +3,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>HomePage</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/navbar-start.css">
+
+    <title>Homepage</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/navbar-home.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/card.css">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/footer.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
-
+<div id="page-container">
+<main class="main-content">
 <!-- Navbar-->
-<div class="navbar-index">
+<div class="navbar">
     <a href="${pageContext.request.contextPath}/StartServlet" class="logo">
         <img src="${pageContext.request.contextPath}/images/white-logo.png" alt="Logo">
     </a>
@@ -32,29 +33,18 @@
 <div class="card-container">
     <div class="card">
         <a href="${pageContext.request.contextPath}/CarServlet">
-            <img src="${pageContext.request.contextPath}/images/car.png" alt="Car">
+            <img src="${pageContext.request.contextPath}/images/car.png" alt="Prima pagina">
         </a>
     </div>
     <div class="card">
         <a href="${pageContext.request.contextPath}/ShopServlet">
-            <img src="${pageContext.request.contextPath}/images/shop.png" alt="Shop">
+            <img src="${pageContext.request.contextPath}/images/shop.png" alt="Seconda pagina">
         </a>
     </div>
 </div>
+</main>
+    <jsp:include page="footer.jsp"/>
 
-<!-- Footer -->
-<footer class="site-footer">
-    <div class="footer-content">
-        <div class="footer-logo">
-            <img src="${pageContext.request.contextPath}/images/black-logo.png" alt="Logo Footer">
-        </div>
-        <div class="footer-info">
-            <p>&copy; 2025 CArvium. All rights reserved.</p>
-            <p>Email: info@carvium.com | Tel: +39 0123 456789</p>
-            <p>123 Example Street, Milan, Italy</p>
-        </div>
-    </div>
-</footer>
-
+</div>
 </body>
 </html>
