@@ -9,7 +9,7 @@
 <body>
 
 <!-- Navbar-->
-<div class="navbar-home-car">
+<div class="navbar-car">
     <a href="${pageContext.request.contextPath}/StartServlet" class="logo">
         <img src="${pageContext.request.contextPath}/images/black-logo.png" alt="Logo">
     </a>
@@ -24,6 +24,8 @@
         </a>
     </div>
 </div>
+
+<jsp:include page="footer.jsp"/>
 
 </body>
 </html>

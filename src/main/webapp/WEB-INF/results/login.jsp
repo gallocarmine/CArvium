@@ -3,24 +3,33 @@
 
 <html>
 <head>
-    <title>Login</title>
+    <title>login</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
 </head>
 <body>
+<div class="login-container">
+    <div class="login">
 
-    <form action = "LoginServlet" method = "POST">
-        <label for = "email"></label>
-        <input type = "email" id = "email" name = "email" placeholder = "Email" required><br><br>
-        <label for = "password"></label>
-        <input type = "password" id = "password" name = "pass" placeholder = "Password" required>
-        <input type = "submit" value = "Login">
-    </form>
+        <form action="LoginServlet" method="POST">
+            <a href="StartServlet">
+                <img src="${pageContext.request.contextPath}/images/black-logo.png" alt="Logo" class="login-logo">
+            </a>
 
-    <div class="divider"><span>OR</span></div>
-    <a href = "SigninServlet">Create Account</a>
+            <h2>Login</h2>
+            <input type="email" id="email" name="email" required placeholder="Email">
+            <input type="password" id="password" name="pass" required placeholder="Password">
+            <input type="submit" value="Login"">
+            <div class="divider"><span>OR</span></div>
+            <a class="create" href="SigninServlet">Create Account</a>
+        </form>
 
-    <c:if test = "${not empty error}">
-        <span>${error}</span>
-    </c:if>
-
+        <c:if test="${not empty error}">
+            <span>${error}</span>
+        </c:if>
+    </div>
+    <div class="login-image">
+        <img src="${pageContext.request.contextPath}/images/login-image.png" alt="Login Image">
+    </div>
+</div>
 </body>
 </html>
