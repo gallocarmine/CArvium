@@ -11,6 +11,7 @@ public class Utente {
     private String cognome;
     private String email;
     private String password;
+    private String nazione;
     private String via;
     private int civico;
     private int CAP;
@@ -19,7 +20,7 @@ public class Utente {
 
     public Utente(){ }
 
-    public Utente(int ID, String nome, String cognome, String email, String password, String via, int civico, int CAP, boolean admin, int IDCarrello) {
+    public Utente(int ID, String nome, String cognome, String email, String password, String nazione, String via, int civico, int CAP, boolean admin, int IDCarrello) {
         this.ID = ID;
         this.nome = nome;
         this.cognome = cognome;
@@ -27,6 +28,7 @@ public class Utente {
         this.password = password;
         this.via = via;
         this.civico = civico;
+        this.nazione = nazione;
         this.CAP = CAP;
         this.IDCarrello = IDCarrello;
         this.admin = admin;
@@ -55,6 +57,8 @@ public class Utente {
     public String getVia() {
         return via;
     }
+
+    public String getNazione() { return nazione;}
 
     public int getCivico() {
         return civico;
@@ -99,8 +103,9 @@ public class Utente {
 
             throw new RuntimeException(e);
         }
-
     }
+
+    public void setNazione(String nazione) { this.nazione = nazione; }
 
     public void setVia(String via) {
         this.via = via;

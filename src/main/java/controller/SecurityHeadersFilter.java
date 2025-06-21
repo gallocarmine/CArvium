@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
 @WebFilter("/*")
 public class SecurityHeadersFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {

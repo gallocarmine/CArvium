@@ -3,8 +3,8 @@ package controller.account;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import model.Aggiunta.Aggiunta;
-import model.Aggiunta.AggiuntaDAO;
+import model.aggiunta.Aggiunta;
+import model.aggiunta.AggiuntaDAO;
 import model.carrello.Carrello;
 import model.carrello.CarrelloDAO;
 import model.ricambi.Ricambi;
@@ -24,7 +24,7 @@ public class SigninServlet extends HttpServlet {
 
         if(request.getParameterMap().isEmpty()){
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/signin.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/signin.jsp");
             dispatcher.forward(request, response);
         }
         else {
@@ -33,14 +33,16 @@ public class SigninServlet extends HttpServlet {
             String lastName = request.getParameter("lastname");
             String email = request.getParameter("email");
             String password = request.getParameter("pass");
+            String country = request.getParameter("country");
             String street = request.getParameter("street");
             String c = request.getParameter("civic");
             String C = request.getParameter("cap");
 
 
             if (isValid(firstName) && isValid(lastName)
-                    && isValid(email) && isValid(password) && validatePassword(password)
-                    && isValid(street) && isValid(c) && isValid(C)){
+                    && validateEmail(email) && validatePassword(password)
+                    && isValid(street)  &&isValid(country)
+                    && isValid(c) && isValid(C)){
 
                 int civic = Integer.parseInt(c);
                 int CAP = Integer.parseInt(C);
@@ -52,6 +54,7 @@ public class SigninServlet extends HttpServlet {
                 user.setCognome(lastName);
                 user.setEmail(email);
                 user.setPassword(password);
+                user.setNazione(country);
                 user.setVia(street);
                 user.setCAP(CAP);
                 user.setCivico(civic);
@@ -67,7 +70,7 @@ public class SigninServlet extends HttpServlet {
 
                     Carrello cart = new Carrello();
                     cart.setQuantita(spares.size());
-                    double totalPrice = spares.stream().map(s -> s.getPrezzo()).reduce(Double::sum).get();
+                    double totalPrice = spares.stream().map(Ricambi::getPrezzo).reduce(Double::sum).get();
                     cart.setCostoTotale(totalPrice);
 
 
@@ -98,10 +101,10 @@ public class SigninServlet extends HttpServlet {
         if(invalid){
 
             request.setAttribute("error", "Some fields are invalid or empty");
-            request.getRequestDispatcher("/WEB-INF/results/signin.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/view/signin.jsp").forward(request, response);
         }
 
-        String url = "/WEB-INF/results/login.jsp";
+        String url = "/WEB-INF/view/login.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }
@@ -112,10 +115,18 @@ public class SigninServlet extends HttpServlet {
         return parameter != null && !parameter.trim().isEmpty();
     }
 
+
+    private boolean validateEmail(String email){
+
+        return email.matches("^[\\w.!#$%&'*+/=?^`{|}~-]+@[a-z\\d-]+(?:\\.[a-z\\d-]+)*$");
+    }
+
+
     private boolean validatePassword(String password){
 
         return password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$");
     }
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
