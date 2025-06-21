@@ -10,7 +10,7 @@ public class StartServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String url = "/WEB-INF/results/common/index.jsp";
+        String url = "/WEB-INF/view/common/index.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }

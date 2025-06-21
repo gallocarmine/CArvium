@@ -1,4 +1,4 @@
-package model.Aggiunta;
+package model.aggiunta;
 
 public class Aggiunta {
 

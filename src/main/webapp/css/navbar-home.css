@@ -1,11 +1,10 @@
 body {
     margin: 0;
     font-family: Kai;
-    background-color: #590000;
+    background-color: #640000FF;
 }
 
 .navbar {
-    background-color: #590000;
     display: flex;
     justify-content: center;
     position: relative;

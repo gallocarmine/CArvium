@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet {
 
         if(request.getParameterMap().isEmpty()){
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/login.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/login.jsp");
             dispatcher.forward(request, response);
         }
         else{
@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
             String email = request.getParameter("email");
             String password = request.getParameter("pass");
 
-            if(isValid(email) && isValid(password)) {
+            if(validateEmail(email) && validatePassword(password)) {
 
                 Utente user = new UtenteDAO().doRetrieveByEmailPassword(email, password);
 
@@ -43,20 +43,25 @@ public class LoginServlet extends HttpServlet {
             if(invalid){
 
                 request.setAttribute("error", "Email or password incorrect");
-                request.getRequestDispatcher("/WEB-INF/results/login.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);
             }
 
-            String url = "/WEB-INF/results/common/index.jsp";
+            String url = "/WEB-INF/view/common/index.jsp";
             RequestDispatcher dispatcher = request.getRequestDispatcher(url);
             dispatcher.forward(request, response);
         }
     }
 
-    private boolean isValid(String parameter){
+    private boolean validateEmail(String email){
 
-        return parameter != null && !parameter.trim().isEmpty();
+        return email.matches("^[\\w.!#$%&'*+/=?^`{|}~-]+@[a-z\\d-]+(?:\\.[a-z\\d-]+)*$");
     }
 
+
+    private boolean validatePassword(String password){
+
+        return password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$");
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

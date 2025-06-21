@@ -1,4 +1,4 @@
-package model.Aggiunta;
+package model.aggiunta;
 
 import model.ConPool;
 

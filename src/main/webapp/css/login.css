@@ -72,8 +72,13 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #590000;
+    background-color: #640000FF;
     transform: scale(1.05);
+}
+
+input:invalid:focus,
+input:invalid:not(:placeholder-shown) {
+    border: 2px solid #ad0707;
 }
 
 .create {
@@ -92,7 +97,7 @@ input[type="submit"]:hover {
     bottom: -3px;
     width: 0;
     height: 2px;
-    background-color: #590000;
+    background-color: #640000FF;
     transition: width 0.3s ease;
 }
 
@@ -136,4 +141,13 @@ input[type="submit"]:hover {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+.error {
+    color: #ad0707;
+    font-size: 16px;
+    position: absolute;
+    bottom: 180px;
+    left: 50%;
+    transform: translateX(-50%);
 }
