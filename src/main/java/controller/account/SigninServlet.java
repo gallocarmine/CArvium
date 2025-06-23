@@ -24,7 +24,7 @@ public class SigninServlet extends HttpServlet {
 
         if(request.getParameterMap().isEmpty()){
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/signin.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/common/signin.jsp");
             dispatcher.forward(request, response);
         }
         else {
@@ -101,10 +101,10 @@ public class SigninServlet extends HttpServlet {
         if(invalid){
 
             request.setAttribute("error", "Some fields are invalid or empty");
-            request.getRequestDispatcher("/WEB-INF/view/signin.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/view/common/signin.jsp").forward(request, response);
         }
 
-        String url = "/WEB-INF/view/login.jsp";
+        String url = "/WEB-INF/view/common/login.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }
@@ -115,12 +115,10 @@ public class SigninServlet extends HttpServlet {
         return parameter != null && !parameter.trim().isEmpty();
     }
 
-
     private boolean validateEmail(String email){
 
         return email.matches("^[\\w.!#$%&'*+/=?^`{|}~-]+@[a-z\\d-]+(?:\\.[a-z\\d-]+)*$");
     }
-
 
     private boolean validatePassword(String password){
 

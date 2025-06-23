@@ -12,6 +12,7 @@
 <body>
 <div id="page-container">
 <main class="main-content">
+
 <!-- Navbar-->
 <div class="navbar">
     <a href="${pageContext.request.contextPath}/common/StartServlet" class="logo">
@@ -19,23 +20,23 @@
     </a>
 
     <div class="login-icon">
-            <c:if test = "${empty user}">
-                <a href="${pageContext.request.contextPath}/auth/LoginServlet">
-                    <i class="bi bi-person-fill" style="font-size: 1.8rem; color: #F5F5F5;"></i>
-                </a>
-            </c:if>
-
-
-            <c:if test = "${not empty user}">
-                <i class="bi bi-person-gear" style="font-size: 1.8rem; color: #F5F5F5;"></i>
-            </c:if>
-
-        <c:if test = "${not empty user}">
-            <a href="${pageContext.request.contextPath}/auth/LogoutServlet">
-                <i class="bi bi-box-arrow-right"></i>
+        <c:if test = "${empty user}">
+            <a href="${pageContext.request.contextPath}/auth/LoginServlet">
+                <i class="bi bi-person-fill" style="font-size: 1.8rem; color: #F5F5F5;"></i>
             </a>
         </c:if>
 
+        <c:if test = "${not empty user}">
+            <a href="${pageContext.request.contextPath}/user/AccountServlet">
+                <i class="bi bi-person-gear" style="font-size: 1.8rem; color: #F5F5F5;"></i>
+            </a>
+        </c:if>
+
+        <c:if test = "${not empty user}">
+            <a href="${pageContext.request.contextPath}/user/LogoutServlet">
+                <i class="bi bi-box-arrow-right"></i>
+            </a>
+        </c:if>
     </div>
 </div>
 
@@ -54,7 +55,6 @@
 </div>
 </main>
     <jsp:include page="footer.jsp"/>
-
 </div>
 </body>
 </html>

@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet {
 
         if(request.getParameterMap().isEmpty()){
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/login.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/common/login.jsp");
             dispatcher.forward(request, response);
         }
         else{
@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
             if(invalid){
 
                 request.setAttribute("error", "Email or password incorrect");
-                request.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/view/common/login.jsp").forward(request, response);
             }
 
             String url = "/WEB-INF/view/common/index.jsp";
@@ -57,11 +57,11 @@ public class LoginServlet extends HttpServlet {
         return email.matches("^[\\w.!#$%&'*+/=?^`{|}~-]+@[a-z\\d-]+(?:\\.[a-z\\d-]+)*$");
     }
 
-
     private boolean validatePassword(String password){
 
         return password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$");
     }
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
