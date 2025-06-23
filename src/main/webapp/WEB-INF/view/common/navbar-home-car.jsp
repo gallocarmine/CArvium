@@ -11,14 +11,18 @@
     <div class="dropdown-menu">
         <button class="menu-button">☰</button>
         <div class="menu-content">
-            <a href="#">Option 1</a>
-            <a href="#">Option 2</a>
-            <a href="#">Option 3</a>
+            <p style="font-weight: bold; margin-bottom: 10px;">Categorie</p>
+            <a href="#">Supercar</a>
+            <a href="#">Coupe'</a>
+            <a href="#">Cabrio</a>
+            <a href="#">SUV</a>
+            <a href="#">Elettriche</a>
+            <a href="#">Berlina</a>
         </div>
     </div>
 
   <a href="${pageContext.request.contextPath}/common/StartServlet" class="logo">
-    <img src="${pageContext.request.contextPath}/images/black-logo.png" alt="Logo">
+    <img src="${pageContext.request.contextPath}/images/white-logo.png" alt="Logo">
   </a>
 
   <div class="login-icon">
