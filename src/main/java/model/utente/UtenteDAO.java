@@ -67,13 +67,14 @@ public class UtenteDAO {
                 String nome = rs.getString("Nome");
                 String cognome = rs.getString("Cognome");
                 String nazione = rs.getString("Nazione");
+                String passwordSHA = rs.getString("Password");
                 String via = rs.getString("Via");
                 int civico = rs.getInt("Civico");
                 int CAP = rs.getInt("CAP");
                 int idCarrello = rs.getInt("ID_Carrello");
                 boolean admin = rs.getBoolean("Admin");
 
-                user = new Utente(id, nome, cognome, email, password, nazione, via, civico, CAP, admin, idCarrello);
+                user = new Utente(id, nome, cognome, email, passwordSHA, nazione, via, civico, CAP, admin, idCarrello);
             }
 
             rs.close();
@@ -105,6 +106,39 @@ public class UtenteDAO {
             ps.setInt(8, user.getCAP());
             ps.setBoolean(9, user.getAdmin());
             ps.setInt(10, user.getIDCarrello());
+
+            result = ps.executeUpdate();
+        }
+        catch(SQLException e){
+
+            System.err.println(e.getMessage());
+        }
+
+        return result;
+    }
+
+
+    public int doUpdate(Utente user){
+
+        int result = 0;
+
+        try(Connection con = new ConPool().getConnection()){
+
+            String sql = "UPDATE Utente SET Nome = ?, Cognome = ?, Email = ?, Password = ?, Nazione = ?, Via = ?, " +
+                    "Civico = ?, CAP = ?, Admin = ?, ID_Carrello = ? WHERE ID = ?";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, user.getNome());
+            ps.setString(2, user.getCognome());
+            ps.setString(3, user.getEmail());
+            ps.setString(4, user.getPassword());
+            ps.setString(5, user.getNazione());
+            ps.setString(6, user.getVia());
+            ps.setInt(7, user.getCivico());
+            ps.setInt(8, user.getCAP());
+            ps.setBoolean(9, user.getAdmin());
+            ps.setInt(10, user.getIDCarrello());
+            ps.setInt(11, user.getID());
 
             result = ps.executeUpdate();
         }

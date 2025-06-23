@@ -6,23 +6,16 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "LogoutServlet", value = "/user/LogoutServlet")
-public class LogoutServlet extends HttpServlet {
+@WebServlet(name = "AccountServet", value = "/user/AccountServlet")
+public class AccountServet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        HttpSession session = request.getSession();
-        session.invalidate();
+        if(request.getParameterMap().isEmpty()){
 
-        String referer = request.getHeader("referer");
-        request.getSession().invalidate();
-
-        if (referer != null) {
-            response.sendRedirect(referer);
-        }
-        else {
-            response.sendRedirect(request.getContextPath() + "/auth/LoginServlet");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/user/account.jsp");
+            dispatcher.forward(request, response);
         }
     }
 

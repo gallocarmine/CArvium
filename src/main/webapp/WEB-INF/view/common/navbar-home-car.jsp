@@ -29,13 +29,13 @@
       </c:if>
 
       <c:if test = "${not empty user}">
-            <a href="${pageContext.request.contextPath}/auth/LogoutServlet">
+            <a href="${pageContext.request.contextPath}/user/LogoutServlet">
             <i class="bi bi-person-gear"></i>
             </a>
       </c:if>
 
       <c:if test = "${not empty user}">
-            <a href="${pageContext.request.contextPath}/auth/LogoutServlet">
+            <a href="${pageContext.request.contextPath}/user/LogoutServlet">
               <i class="bi bi-box-arrow-right"></i>
             </a>
       </c:if>
