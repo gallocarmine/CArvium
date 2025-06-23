@@ -17,6 +17,7 @@ body {
     height: auto;
     display: block;
     padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 .login-icon {
