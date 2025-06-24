@@ -37,32 +37,36 @@ public class UpdateUserServlet extends HttpServlet {
                 invalid = false;
 
                 HttpSession session = request.getSession();
-                Utente user = (Utente) session.getAttribute("user");
+                Integer userID = (Integer) session.getAttribute("user");
+
+                Utente user = new UtenteDAO().doRetrieveByID(userID);
 
                 user.setNome(firstName);
                 user.setCognome(lastName);
                 user.setEmail(email);
-                user.setPassword(confirmPass);
                 user.setNazione(country);
                 user.setVia(street);
                 user.setCAP(CAP);
                 user.setCivico(civic);
 
-                //verify if the user has been updated
+                /* if there's password changes the pattern
+                was already checked by validatePasswords */
+                if(!confirmPass.isEmpty()){ user.setPasswordSHA(confirmPass); }
+
+                //verify if the user has been updated/founded
                 if (new UtenteDAO().doUpdate(user) == 0) {
 
-                    request.setAttribute("error", "No changes made");
+                    request.setAttribute("error", "Error during update");
                 }
             }
 
-            if (invalid) {
+         if (invalid) {
 
-                request.setAttribute("error", "Some fields are invalid or empty");
-            }
+             request.setAttribute("error", "Some fields are invalid or empty");
+         }
 
-            String url = "/WEB-INF/view/user/account.jsp";
-            RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-            dispatcher.forward(request, response);
+        String contextPath = request.getContextPath();
+        response.sendRedirect(contextPath + "/user/AccountServlet");
     }
 
     private boolean isValid(String parameter){
@@ -79,10 +83,14 @@ public class UpdateUserServlet extends HttpServlet {
 
         if(newPass.equals(confirmPass)){
 
+            if(confirmPass.isEmpty()){ return true; }
+
             return confirmPass.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$");
         }
+
         return false;
     }
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

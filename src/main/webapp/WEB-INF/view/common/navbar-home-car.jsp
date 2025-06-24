@@ -33,7 +33,7 @@
       </c:if>
 
       <c:if test = "${not empty user}">
-            <a href="${pageContext.request.contextPath}/user/LogoutServlet">
+            <a href="${pageContext.request.contextPath}/user/AccountServlet">
             <i class="bi bi-person-gear"></i>
             </a>
       </c:if>

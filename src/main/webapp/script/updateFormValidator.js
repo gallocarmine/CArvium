@@ -44,6 +44,9 @@ function validatePasswords(newPass, confirmPass) {
 
     if(newPass === confirmPass){
 
+        //no password changes
+        if(confirmPass == ''){ return true; }
+
         return pattern.test(newPass) && pattern.test(confirmPass);
     }
 

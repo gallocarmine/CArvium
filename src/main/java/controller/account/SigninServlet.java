@@ -53,7 +53,7 @@ public class SigninServlet extends HttpServlet {
                 user.setNome(firstName);
                 user.setCognome(lastName);
                 user.setEmail(email);
-                user.setPassword(password);
+                user.setPasswordSHA(password);
                 user.setNazione(country);
                 user.setVia(street);
                 user.setCAP(CAP);
@@ -104,9 +104,8 @@ public class SigninServlet extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/view/common/signin.jsp").forward(request, response);
         }
 
-        String url = "/WEB-INF/view/common/login.jsp";
-        RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-        dispatcher.forward(request, response);
+        String contextPath = request.getContextPath();
+        response.sendRedirect(contextPath + "/auth/LoginServlet");
     }
 
 

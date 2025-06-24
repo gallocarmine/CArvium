@@ -11,8 +11,23 @@
 
 <jsp:include page="navbar-home-car.jsp"/>
 
+<div class="intro-section">
+    <div class="intro-text">
+        <h2>Benvenuto su Carvium</h2>
+        <p>
+            Carvium è il tuo punto di riferimento esclusivo per auto di alta gamma e componenti esclusivi. Offriamo una selezione meticolosa dei migliori brand automobilistici, garantendo veicoli che rappresentano l'apice di qualità e prestazioni.
+            La nostra dedizione si riflette nell'esperienza che offriamo: un team di professionisti appassionati, impegnati a guidarti con serietà e trasparenza verso l'auto perfetta per te. Ogni acquisto è supportato da consulenza personalizzata
+            e un servizio clienti impeccabile, perché crediamo che l'eccellenza non debba riguardare solo l'auto, ma l'intera esperienza.
+            Scopri le nostre categorie e trova la vettura dei tuoi sogni. Da Carvium, la tua prossima auto di prestigio ti aspetta.
+        </p>
+    </div>
+    <div class="intro-image">
+        <img src="${pageContext.request.contextPath}/images/car-desc.jpg" alt="Carvium Project">
+    </div>
+</div>
+
 <div class="main-content">
-    <div class="divider"><span>Benvenuto nella Home Car</span></div>
+    <div class="divider"><span>Brand Auto</span></div>
 
     <div class="divider-section">
         <div class="card-grid">

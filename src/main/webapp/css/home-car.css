@@ -9,13 +9,11 @@ body {
     background-color: #ffffff;
 }
 
-/* Main Content */
 .main-content {
     padding: 40px 40px;
     text-align: center;
 }
 
-/* Divider Sections */
 .divider-section {
     margin-bottom: 40px;
 }
@@ -43,6 +41,7 @@ body {
 .card:hover {
     transform: scale(1.05);
 }
+
 .divider {
     display: flex;
     align-items: center;
@@ -80,18 +79,18 @@ body {
 .card:hover img {
     filter: none;
 }
+
 .intro-section {
     display: flex;
     align-items: center;
     padding: 40px;
 }
 
-
 .intro-text {
     flex: 1;
     font-size: 20px;
     line-height: 1.6;
-    text-align: left;
+    text-align: justify;
 }
 
 .intro-text h2 {

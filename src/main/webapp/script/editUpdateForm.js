@@ -9,4 +9,11 @@ function editFields() {
     document.getElementById("street").removeAttribute("readonly");
     document.getElementById("civic").removeAttribute("readonly");
     document.getElementById("cap").removeAttribute("readonly");
+
+    const form= document.getElementById("updateForm");
+    const saveChanges= document.createElement("input");
+    saveChanges.type = "submit";
+    saveChanges.value = "Save Changes";
+
+    form.appendChild(saveChanges);
 }
