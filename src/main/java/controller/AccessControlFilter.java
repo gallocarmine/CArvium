@@ -16,13 +16,26 @@ public class AccessControlFilter extends HttpFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
 
-        Utente user = (Utente) req.getSession().getAttribute("user");
+        Integer user = (Integer) req.getSession().getAttribute("user");
+        Boolean admin = (Boolean) req.getSession().getAttribute("admin");
 
         String path = req.getServletPath();
 
         if(path.contains("/user/") && user == null) {
 
             res.sendRedirect(req.getContextPath() + "/auth/LoginServlet");
+            return;
+        }
+
+        if(path.contains("/auth/") && user != null){
+
+            res.sendRedirect(req.getContextPath() + "/common/StartServlet");
+            return;
+        }
+
+        if(path.contains("/admin/") && admin != null){
+
+            res.sendRedirect(req.getContextPath() + "/common/StartServlet");
             return;
         }
 

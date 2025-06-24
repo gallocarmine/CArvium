@@ -91,7 +91,7 @@ public class Utente {
         this.email = email;
     }
 
-    public void setPassword(String password) {
+    public void setPasswordSHA(String password) {
         try{
             MessageDigest digest = MessageDigest.getInstance("SHA-512");
             digest.reset();

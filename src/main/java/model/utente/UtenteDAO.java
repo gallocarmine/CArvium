@@ -49,6 +49,45 @@ public class UtenteDAO {
         return users;
     }
 
+
+    public Utente doRetrieveByID(int id){
+
+        Utente user = null;
+
+        try(Connection con = new ConPool().getConnection()){
+
+            String sql = "SELECT * FROM Utente WHERE ID = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+
+                String nome = rs.getString("Nome");
+                String cognome = rs.getString("Cognome");
+                String nazione = rs.getString("Nazione");
+                String email = rs.getString("Email");
+                String passwordSHA = rs.getString("Password");
+                String via = rs.getString("Via");
+                int civico = rs.getInt("Civico");
+                int CAP = rs.getInt("CAP");
+                int idCarrello = rs.getInt("ID_Carrello");
+                boolean admin = rs.getBoolean("Admin");
+
+                user = new Utente(id, nome, cognome, email, passwordSHA, nazione, via, civico, CAP, admin, idCarrello);
+            }
+
+            rs.close();
+        }
+        catch(SQLException e){
+
+            System.err.println(e.getMessage());
+        }
+
+        return user;
+    }
+
+
     public Utente doRetrieveByEmailPassword(String email, String password){
 
         Utente user = null;

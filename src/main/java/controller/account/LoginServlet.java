@@ -36,7 +36,8 @@ public class LoginServlet extends HttpServlet {
                     invalid = false;
 
                     HttpSession session = request.getSession();
-                    session.setAttribute("user", user);
+                    session.setAttribute("user", user.getID());
+                    session.setAttribute("admin", user.getAdmin());
                 }
             }
 
@@ -46,9 +47,8 @@ public class LoginServlet extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/view/common/login.jsp").forward(request, response);
             }
 
-            String url = "/WEB-INF/view/common/index.jsp";
-            RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-            dispatcher.forward(request, response);
+            String contextPath = request.getContextPath();
+            response.sendRedirect(contextPath + "/common/StartServlet");
         }
     }
 
