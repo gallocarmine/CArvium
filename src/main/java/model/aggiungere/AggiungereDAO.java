@@ -1,4 +1,4 @@
-package model.aggiunta;
+package model.aggiungere;
 
 import model.ConPool;
 
@@ -6,11 +6,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AggiuntaDAO {
+public class AggiungereDAO {
 
-    public List<Aggiunta> doRetrieveAll(){
+    public List<Aggiungere> doRetrieveAll(){
 
-        List<Aggiunta> adds = new ArrayList<>();
+        List<Aggiungere> adds = new ArrayList<>();
 
         try(Connection con = new ConPool().getConnection()){
 
@@ -23,7 +23,7 @@ public class AggiuntaDAO {
                 int idCarrello = rs.getInt("ID_Carrello");
                 int idRicambio = rs.getInt("ID_Ricambi");
 
-                Aggiunta add = new Aggiunta(idCarrello, idRicambio);
+                Aggiungere add = new Aggiungere(idCarrello, idRicambio);
                 adds.add(add);
             }
 
@@ -37,7 +37,7 @@ public class AggiuntaDAO {
         return adds;
     }
 
-    public int doSave(Aggiunta add){
+    public int doSave(Aggiungere add){
 
         int result = 0;
 

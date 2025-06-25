@@ -3,7 +3,6 @@ package model.ordine;
 import model.ConPool;
 
 import java.sql.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,10 +21,10 @@ public class OrdineDAO {
             while(rs.next()){
 
                 int id = rs.getInt("ID");
-                LocalDateTime data = rs.getTimestamp("Data").toLocalDateTime();
-                int idUtente = rs.getInt("ID_Utente");
+                int quantita = rs.getInt("Quantità");
+                double costoTotale = rs.getInt("CostoTotale");
 
-                Ordine order = new Ordine( id, data, idUtente);
+                Ordine order = new Ordine(id, quantita, costoTotale);
                 orders.add(order);
             }
 
@@ -38,16 +37,18 @@ public class OrdineDAO {
         return orders;
     }
 
-    public int doSave(Ordine ordine){
+    public int doSave(Ordine order){
 
         int result = 0;
 
         try(Connection con = new ConPool().getConnection()){
 
-            String sql = "INSERT INTO Ordine (Data, ID_Utente) VALUES (?,?)";
+            String sql = "INSERT INTO Ordine (Data, ID_Utente) VALUES (?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setTimestamp(1, Timestamp.valueOf(ordine.getData()));
-            ps.setInt(2, ordine.getIDUtente());
+
+            ps.setInt(1, order.getID());
+            ps.setInt(2, order.getQuantita());
+            ps.setDouble(3, order.getCostoTotale());
 
             result = ps.executeUpdate();
         }

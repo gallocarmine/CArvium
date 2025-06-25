@@ -3,8 +3,8 @@ package controller.account;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import model.aggiunta.Aggiunta;
-import model.aggiunta.AggiuntaDAO;
+import model.aggiungere.Aggiungere;
+import model.aggiungere.AggiungereDAO;
 import model.carrello.Carrello;
 import model.carrello.CarrelloDAO;
 import model.ricambi.Ricambi;
@@ -74,10 +74,10 @@ public class SigninServlet extends HttpServlet {
                     cart.setCostoTotale(totalPrice);
 
 
-                    AggiuntaDAO addDAO = new AggiuntaDAO();
+                    AggiungereDAO addDAO = new AggiungereDAO();
                     for(Ricambi s : spares){
 
-                        Aggiunta add = new Aggiunta(idCart, s.getID());
+                        Aggiungere add = new Aggiungere(idCart, s.getID());
                         addDAO.doSave(add);
                     }
 
