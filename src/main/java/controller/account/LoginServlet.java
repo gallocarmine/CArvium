@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
 
                     HttpSession session = request.getSession();
                     session.setAttribute("user", user.getID());
-                    session.setAttribute("admin", user.getAdmin());
+                    if(user.getAdmin()){ session.setAttribute("admin", user.getAdmin()); }
                 }
             }
 
