@@ -1,11 +1,11 @@
-package model.aggiunta;
+package model.aggiungere;
 
-public class Aggiunta {
+public class Aggiungere {
 
     private int IDCarrello;
     private int IDRicambi;
 
-    public Aggiunta(int IDCarrello, int IDRicambi) {
+    public Aggiungere(int IDCarrello, int IDRicambi) {
 
         this.IDCarrello = IDCarrello;
         this.IDRicambi = IDRicambi;

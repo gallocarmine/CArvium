@@ -4,38 +4,39 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Ordine {
-    private int ID;
-    private LocalDateTime data;
-    private int IDUtente;
 
-    public Ordine(int ID, LocalDateTime data, int IDUtente) {
+    private int ID;
+    private int quantita;
+    private double costoTotale;
+
+    public Ordine(int ID, int quantita, double costoTotale) {
         this.ID = ID;
-        this.data = data;
-        this.IDUtente = IDUtente;
+        this.quantita = quantita;
+        this.costoTotale = costoTotale;
     }
 
     public int getID() {
         return ID;
     }
 
-    public LocalDateTime getData() {
-        return data;
+    public int getQuantita() {
+        return quantita;
     }
 
-    public int getIDUtente() {
-        return IDUtente;
+    public double getCostoTotale() {
+        return costoTotale;
     }
 
+
+    public void setQuantita(int quantita) {
+        this.quantita = quantita;
+    }
 
     public void setID(int ID) {
         this.ID = ID;
     }
 
-    public void setData(LocalDateTime data) {
-        this.data = data;
-    }
-
-    public void setIDUtente(int IDUtente) {
-        this.IDUtente = IDUtente;
+    public void setCostoTotale(double costoTotale) {
+        this.costoTotale = costoTotale;
     }
 }
