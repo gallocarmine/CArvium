@@ -4,11 +4,13 @@ public class Aggiungere {
 
     private int IDCarrello;
     private int IDRicambi;
+    private int quantita;
 
-    public Aggiungere(int IDCarrello, int IDRicambi) {
+    public Aggiungere(int IDCarrello, int IDRicambi, int quantita) {
 
         this.IDCarrello = IDCarrello;
         this.IDRicambi = IDRicambi;
+        this.quantita = quantita;
     }
 
     public int getIDCarrello() {
@@ -19,6 +21,9 @@ public class Aggiungere {
         return IDRicambi;
     }
 
+    public int getQuantita() {return quantita;}
+
+
     public void setIDCarrello(int IDCarrello) {
         this.IDCarrello = IDCarrello;
     }
@@ -27,4 +32,5 @@ public class Aggiungere {
         this.IDRicambi = IDRicambi;
     }
 
+    public void setQuantita(int quantita) {this.quantita = quantita;}
 }

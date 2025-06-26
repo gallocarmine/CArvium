@@ -1,4 +1,4 @@
-package controller.account;
+package controller.auth;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -8,6 +8,7 @@ import model.aggiungere.AggiungereDAO;
 import model.carrello.Carrello;
 import model.carrello.CarrelloDAO;
 import model.ricambi.Ricambi;
+import model.ricambi.RicambiDAO;
 import model.utente.Utente;
 import model.utente.UtenteDAO;
 
@@ -41,7 +42,7 @@ public class SigninServlet extends HttpServlet {
 
             if (isValid(firstName) && isValid(lastName)
                     && validateEmail(email) && validatePassword(password)
-                    && isValid(street)  &&isValid(country)
+                    && isValid(street) && isValid(country)
                     && isValid(c) && isValid(C)){
 
                 int civic = Integer.parseInt(c);
@@ -60,40 +61,47 @@ public class SigninServlet extends HttpServlet {
                 user.setCivico(civic);
                 user.setAdmin(false);
 
-                int idCart = new CarrelloDAO().doRetrieveLastID() + 1;
+
+                Carrello cart = new Carrello();
+                cart.setCostoTotale(0);
+                cart.setQuantita(0);
+                new CarrelloDAO().doSave(cart);
+
+
+                int idCart = new CarrelloDAO().doRetrieveLastID();
                 user.setIDCarrello(idCart);
-
-                HttpSession session = request.getSession();
-                List<Ricambi> spares = (List<Ricambi>) session.getAttribute("spares");
-
-                if(spares != null){
-
-                    Carrello cart = new Carrello();
-                    cart.setQuantita(spares.size());
-                    double totalPrice = spares.stream().map(Ricambi::getPrezzo).reduce(Double::sum).get();
-                    cart.setCostoTotale(totalPrice);
-
-
-                    AggiungereDAO addDAO = new AggiungereDAO();
-                    for(Ricambi s : spares){
-
-                        Aggiungere add = new Aggiungere(idCart, s.getID());
-                        addDAO.doSave(add);
-                    }
-
-                    new CarrelloDAO().doSave(cart);
-                }
-                else{
-
-                    Carrello cart = new Carrello();
-                    cart.setCostoTotale(0);
-                    cart.setQuantita(0);
-                    new CarrelloDAO().doSave(cart);
-                }
 
                 //verify if user is already registered
                 if(new UtenteDAO().doSave(user) != 1) {
+
+                    new CarrelloDAO().doDeleteByID(idCart);
                     invalid = true;
+                }
+                else{
+
+                    HttpSession session = request.getSession();
+                    List<Aggiungere> spares = (List<Aggiungere>) session.getAttribute("spares");
+
+                    //transfer (if exists) the products from sessionCart to userCart
+                    if(spares != null) {
+
+                        cart.setQuantita(spares.stream().map(Aggiungere::getQuantita).reduce(Integer::sum).get());
+
+                        double totalCost = 0;
+
+                        AggiungereDAO addDAO = new AggiungereDAO();
+                        for (Aggiungere s : spares) {
+
+                            s.setIDCarrello(idCart);
+                            addDAO.doSave(s);
+
+                            //calculate cart totalCost with updated/latest price
+                            totalCost += s.getQuantita() * new RicambiDAO().doRetrieveByID(s.getIDRicambio()).getPrezzo();
+                        }
+
+                        cart.setCostoTotale(totalCost);
+                        new CarrelloDAO().doUpdateByID(cart);
+                    }
                 }
             }
         }
