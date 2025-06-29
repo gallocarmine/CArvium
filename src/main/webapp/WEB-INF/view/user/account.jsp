@@ -9,21 +9,25 @@
 <h2>My Account</h2>
 
 <div class="btn-group">
-    <button>My Data</button>
-    <c:if test="${empty admin}">
-        <button>Orders</button>
-    </c:if>
-    <c:if test="${not empty admin}">
-        <button>Dashboard</button>
-    </c:if>
-</div>
 
+    <button onclick=switchToData()>My Data</button>
+
+    <c:if test="${empty admin}">
+        <button onclick=switchToOrder()>Orders</button>
+    </c:if>
+
+    <c:if test="${not empty admin}">
+        <button onclick=switchToDashboard()>Dashboard</button>
+    </c:if>
+
+</div>
 
 <jsp:include page="account-data.jsp"/>
 
-
 </body>
 </html>
+
+<script>document.addEventListener('DOMContentLoaded', function () { switchToData() }); </script>
 
 
 

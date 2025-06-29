@@ -10,4 +10,5 @@ fetch(`/${basePath}/api/countries.json`)
             option.textContent = country.name;
             select.appendChild(option);
         });
-    });
+    })
+    .catch(error => console.error("Errore nel caricamento:", error));
