@@ -11,13 +11,13 @@
     <div class="dropdown-menu">
         <button class="menu-button">☰</button>
         <div class="menu-content">
-            <p style="font-weight: bold; margin-bottom: 10px;">Categorie</p>
+            <p style="font-weight: bold; margin-bottom: 10px;">Categories</p>
             <a href="#">Supercar</a>
             <a href="#">Coupe'</a>
             <a href="#">Cabrio</a>
             <a href="#">SUV</a>
-            <a href="#">Elettriche</a>
-            <a href="#">Berlina</a>
+            <a href="#">Electric</a>
+            <a href="#">Sedan</a>
         </div>
     </div>
 

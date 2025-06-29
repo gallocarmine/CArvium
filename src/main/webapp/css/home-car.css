@@ -9,6 +9,61 @@ body {
     background-color: #ffffff;
 }
 
+.intro-section-1 {
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    margin-bottom: -250px;
+}
+
+.intro-section-2 {
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    margin-bottom: -250px;
+}
+
+.intro-section-3 {
+    display: flex;
+    align-items: center;
+    padding: 40px;
+}
+
+.intro-text {
+    flex: 1;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: justify;
+    max-width: 800px;
+}
+
+.intro-text h2 {
+    font-size: 40px;
+    margin-bottom: 25px;
+}
+
+.intro-text p {
+    font-family: Nanum Myeongjo;
+}
+
+.intro-image {
+    flex: 0.4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro-image img {
+    max-width: 650px;
+    max-height: 750px;
+    padding: 40px;
+    transition: transform 0.4s ease;
+}
+
+.intro-image img:hover {
+    transform: scale(1.05);
+}
+
 .main-content {
     padding: 40px 40px;
     text-align: center;
@@ -78,38 +133,4 @@ body {
 
 .card:hover img {
     filter: none;
-}
-
-.intro-section {
-    display: flex;
-    align-items: center;
-    padding: 40px;
-}
-
-.intro-text {
-    flex: 1;
-    font-size: 20px;
-    line-height: 1.6;
-    text-align: justify;
-}
-
-.intro-text h2 {
-    font-size: 40px;
-    margin-bottom: 25px;
-}
-
-.intro-image {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 0;
-    margin-right: 0;
-}
-
-.intro-image img {
-    max-width: 1000px;
-    max-height: 450px;
-    height: auto;
-    border-radius: 12px;
 }
