@@ -39,13 +39,14 @@ public class ContenereDAO {
         return contains;
     }
 
+
     public int doSave(Contenere contain){
 
         int result = 0;
 
         try(Connection con = new ConPool().getConnection()){
 
-            String sql = "INSERT INTO Contenere (ID_Ordine, ID_Ricambi, Quantità, PrezzoUnitario) VALUES (?,?,?, ?)";
+            String sql = "INSERT INTO Contenere (ID_Ordine, ID_Ricambi, Quantità, PrezzoUnitario) VALUES (?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
 
             ps.setInt(1, contain.getIDOrdine());
