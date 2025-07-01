@@ -41,6 +41,38 @@ public class OrdineDAO {
     }
 
 
+    public List<Ordine> doRetrieveByIDCart(int idCart){
+
+        List<Ordine> orders = new ArrayList<>();
+
+        try(Connection con = new ConPool().getConnection()){
+
+            String sql = "SELECT * FROM Ordine WHERE ID_Carrello = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idCart);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+
+                int id = rs.getInt("ID");
+                int quantita = rs.getInt("Quantità");
+                double costoTotale = rs.getInt("CostoTotale");
+                LocalDateTime data = rs.getTimestamp("Data").toLocalDateTime();
+
+                Ordine order = new Ordine(id, quantita, costoTotale, data, idCart);
+                orders.add(order);
+            }
+
+            rs.close();
+        }
+        catch(SQLException e){
+
+            System.err.println(e.getMessage());
+        }
+        return orders;
+    }
+
+
     public int doSave(Ordine order){
 
         int result = 0;

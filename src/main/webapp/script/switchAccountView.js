@@ -17,7 +17,7 @@ function switchToData() {
             document.getElementById("country").value = data.userInfo.nazione;
             document.getElementById("street").value = data.userInfo.via;
             document.getElementById("civic").value = data.userInfo.civico;
-            document.getElementById("cap").value = data.userInfo.CAP;
+            document.getElementById("cap").value = data.userInfo.cap;
 
         })
         .catch(error => {
@@ -31,6 +31,50 @@ function switchToData() {
 
 
 function switchToOrder() {
+
+    const basePath = window.location.pathname.split('/')[1];
+
+    fetch(`/${basePath}/user/OrderInfoServlet`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+
+            const table = document.querySelector(".orders-table tbody");
+            table.innerHTML = "";
+
+            data.ordersInfo.forEach(orderInfo => {
+
+                const tr = document.createElement("tr");
+
+                const tdId = document.createElement("td");
+                tdId.textContent = orderInfo.id;
+                tr.appendChild(tdId);
+
+                const tdQuantity = document.createElement("td");
+                tdQuantity.textContent = orderInfo.quantita;
+                tr.appendChild(tdQuantity);
+
+                const tdCost = document.createElement("td");
+                tdCost.textContent = orderInfo.costoTotale;
+                tr.appendChild(tdCost);
+
+                const tdDate = document.createElement("td");
+
+                const dataArray = orderInfo.data;
+                const date = new Date(dataArray[0], dataArray[1] - 1, dataArray[2], dataArray[3], dataArray[4]);
+                tdDate.textContent = date.toLocaleDateString("en-US");
+                tr.appendChild(tdDate);
+
+                table.appendChild(tr);
+            });
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
 
     document.querySelector(".data-container").style.display = "none";
     document.querySelector(".dashboard-container").style.display = "none";
