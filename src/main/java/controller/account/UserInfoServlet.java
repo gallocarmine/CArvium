@@ -1,7 +1,7 @@
 package controller.account;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -21,24 +21,27 @@ public class UserInfoServlet extends HttpServlet {
         int id = (int) session.getAttribute("user");
         Utente userInfo = new UtenteDAO().doRetrieveByID(id);
 
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+
         PrintWriter out = response.getWriter();
+
+        ObjectMapper mapper = new ObjectMapper();
 
         if (userInfo != null) {
 
-            response.setContentType("application/json");
-            response.setCharacterEncoding("UTF-8");
-
-            JsonObject info = new JsonObject();
-            info.add("userInfo", new Gson().toJsonTree(userInfo));
-            out.write(info.toString());
+            ObjectNode info = mapper.createObjectNode();
+            info.set("userInfo", mapper.valueToTree(userInfo));
+            out.write(mapper.writeValueAsString(info));
         }
         else {
 
-            JsonObject error = new JsonObject();
-            error.addProperty("error", "user info not found");
-            out.write(error.toString());
+            ObjectNode error = mapper.createObjectNode();
+            error.put("error", "user info not found");
+            out.write(mapper.writeValueAsString(error));
         }
 
         out.flush();
+        out.close();
     }
 }

@@ -23,6 +23,8 @@
 </div>
 
 <jsp:include page="account-data.jsp"/>
+<jsp:include page="account-orders.jsp"/>
+<jsp:include page="account-dashboard.jsp"/>
 
 </body>
 </html>
