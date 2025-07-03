@@ -8,6 +8,8 @@
 
 <div class="data-container">
 
+    <h2>My Account</h2>
+
     <form action="${pageContext.request.contextPath}/user/UpdateUserServlet" method="POST" id="updateForm">
         <input type="text" id="firstname" name="firstname" maxlength="30" pattern="^(?!\s*$).+" required readonly>
         <input type="text" id="lastname" name="lastname" maxlength="30" pattern="^(?!\s*$).+" required readonly>

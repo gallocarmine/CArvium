@@ -25,7 +25,7 @@ public class OrdineDAO {
                 int quantita = rs.getInt("Quantità");
                 double costoTotale = rs.getInt("CostoTotale");
                 LocalDateTime data = rs.getTimestamp("Data").toLocalDateTime();
-                int idCarrello = rs.getInt("IDCarrello");
+                int idCarrello = rs.getInt("ID_Carrello");
 
                 Ordine order = new Ordine(id, quantita, costoTotale, data, idCarrello);
                 orders.add(order);

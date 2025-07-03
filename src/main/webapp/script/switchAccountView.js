@@ -43,34 +43,9 @@ function switchToOrder() {
         })
         .then(data => {
 
-            const table = document.querySelector(".orders-table tbody");
-            table.innerHTML = "";
+            const tableName = "orders-table";
+            createOrdersTable(data.ordersInfo, tableName);
 
-            data.ordersInfo.forEach(orderInfo => {
-
-                const tr = document.createElement("tr");
-
-                const tdId = document.createElement("td");
-                tdId.textContent = orderInfo.id;
-                tr.appendChild(tdId);
-
-                const tdQuantity = document.createElement("td");
-                tdQuantity.textContent = orderInfo.quantita;
-                tr.appendChild(tdQuantity);
-
-                const tdCost = document.createElement("td");
-                tdCost.textContent = orderInfo.costoTotale;
-                tr.appendChild(tdCost);
-
-                const tdDate = document.createElement("td");
-
-                const dataArray = orderInfo.data;
-                const date = new Date(dataArray[0], dataArray[1] - 1, dataArray[2], dataArray[3], dataArray[4]);
-                tdDate.textContent = date.toLocaleDateString("en-US");
-                tr.appendChild(tdDate);
-
-                table.appendChild(tr);
-            });
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
@@ -84,9 +59,66 @@ function switchToOrder() {
 
 function switchToDashboard() {
 
+    const basePath = window.location.pathname.split('/')[1];
+
+    fetch(`/${basePath}/admin/DashboardInfoServlet`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+
+            document.getElementById("gross-revenues").innerHTML = data.grossRevenues + " $";
+            document.getElementById("total-order").innerHTML = data.totalOrders;
+            document.getElementById("spares-sold").innerHTML = data.sparesSold;
+            document.getElementById("average-revenue").innerHTML = data.averageRevenue + " $";
+
+            const tableName = "dashboard-orders";
+            createOrdersTable(data.ordersInfo, tableName);
+
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+
     document.querySelector(".data-container").style.display = "none";
     document.querySelector(".orders-container").style.display = "none";
     document.querySelector(".dashboard-container").style.display = "block";
+}
+
+
+function createOrdersTable(ordersInfo, tableName){
+
+    const table = document.querySelector("." + tableName + " tbody");
+    table.innerHTML = "";
+
+    ordersInfo.forEach(orderInfo => {
+
+        const tr = document.createElement("tr");
+
+        const tdId = document.createElement("td");
+        tdId.textContent = orderInfo.id;
+        tr.appendChild(tdId);
+
+        const tdQuantity = document.createElement("td");
+        tdQuantity.textContent = orderInfo.quantita;
+        tr.appendChild(tdQuantity);
+
+        const tdCost = document.createElement("td");
+        tdCost.textContent = orderInfo.costoTotale + " $";
+        tr.appendChild(tdCost);
+
+        const tdDate = document.createElement("td");
+
+        const dataArray = orderInfo.data;
+        const date = new Date(dataArray[0], dataArray[1] - 1, dataArray[2], dataArray[3], dataArray[4]);
+        tdDate.textContent = date.toLocaleDateString("en-US");
+        tr.appendChild(tdDate);
+
+        table.appendChild(tr);
+    });
 }
 
 

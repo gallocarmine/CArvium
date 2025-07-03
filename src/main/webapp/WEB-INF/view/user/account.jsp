@@ -6,8 +6,6 @@
 </head>
 <body>
 
-<h2>My Account</h2>
-
 <div class="btn-group">
 
     <button onclick=switchToData()>My Data</button>

@@ -7,6 +7,9 @@
 <body>
 
 <div class="orders-container">
+
+    <h2>My Orders</h2>
+
     <table class="orders-table">
         <thead>
         <tr>
