@@ -11,13 +11,11 @@
     <div class="dropdown-menu">
         <button class="menu-button">☰</button>
         <div class="menu-content">
-            <p style="font-weight: bold; margin-bottom: 10px;">Categories</p>
-            <a href="#">Supercar</a>
-            <a href="#">Coupe'</a>
-            <a href="#">Cabrio</a>
-            <a href="#">SUV</a>
-            <a href="#">Electric</a>
-            <a href="#">Sedan</a>
+            <p>Brand <i class="bi bi-chevron-right"></i></p>
+            <p>Models <i class="bi bi-chevron-right"></i></p>
+            <a href="${pageContext.request.contextPath}/common/ShopServlet">
+                Shop <i class="bi bi-cart3"></i>
+            </a>
         </div>
     </div>
 
@@ -45,6 +43,8 @@
       </c:if>
   </div>
 </div>
+
+<script src="${pageContext.request.contextPath}/script/menuView.js"></script>
 
 </body>
 </html>

@@ -38,10 +38,10 @@ body {
 
 .menu-content {
     position: fixed;
-    top: 79px; /* spazio per la navbar */
+    top: 79px;
     left: -100%;
-    width: 350px; /* larghezza fissa */
-    height: calc(60vh - 50px); /* tutta l'altezza visibile sotto la navbar */
+    width: 350px;
+    height: 100%;
     background-color: white;
     padding: 20px;
     display: flex;
@@ -55,13 +55,7 @@ body {
     left: 0;
 }
 
-.menu-content p {
-    font-weight: bold;
-    font-size: 24px;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
+.menu-content p,
 .menu-content a {
     text-decoration: none;
     color: #000;
@@ -71,11 +65,17 @@ body {
     padding: 5px 10px;
 }
 
+.menu-content p:hover,
 .menu-content a:hover {
     background-color: #640000EF;
     color: white;
     border-radius: 20px;
-    clip-path: polygon(0 0, 0 350%, 100% 0);
+}
+
+.menu-content i {
+    margin-left: 10px;
+    font-size: 1.3rem;
+    cursor: pointer;
 }
 
 .menu-button {

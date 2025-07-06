@@ -13,29 +13,20 @@
 
 <jsp:include page="navbar-home-car.jsp"/>
 
-<div class="intro-section-1">
-    <div class="intro-text">
-        <h2>Carvium is your exclusive destination for high-end vehicles.</h2>
-        <p>
-            We offer a meticulously curated selection of the world’s finest automotive brands, ensuring vehicles that
-            represent the pinnacle of quality and performance.
-            Our dedication is reflected in the experience we provide: a team of passionate professionals, committed to
-            guiding you with integrity and transparency toward the perfect car for you.
-            Every purchase is backed by personalized consultation and impeccable customer service because we believe
-            excellence should define not only the vehicle, but the entire journey.
-            Explore our categories and find the car of your dreams.
-            At Carvium, your next prestigious vehicle is waiting.
-        </p>
-    </div>
-    <div class="intro-image">
-        <img src="${pageContext.request.contextPath}/images/home-car/car-desc-2.png" alt="Carvium Project">
-    </div>
+<div class="video-container">
+    <h2>Your exclusive destination <br>
+        for high-end vehicles</h2>
+    <video autoplay loop muted oncontextmenu="return false;">
+        <source src="${pageContext.request.contextPath}/video/home-car.mp4" type="video/mp4">
+    </video>
 </div>
 
-<div class="intro-section-2">
-    <div class="intro-image">
-        <img src="${pageContext.request.contextPath}/images/home-car/car-desc-2.png" alt="Carvium Project">
-    </div>
+<div class="intro-image">
+    <img src="${pageContext.request.contextPath}/images/home-car/car-intro.png" alt="intro-collage">
+</div>
+
+<div class="intro-section">
+
     <div class="intro-text">
         <h3>Where Excellence Takes Shape</h3>
         <p>
@@ -53,29 +44,26 @@
             and truly unforgettable.
             Welcome to Carvium where your satisfaction is our highest priority.
         </p>
-    </div>
-</div>
-
-<div class="intro-section-3">
-    <div class="intro-text">
+        <br><br>
         <h3>We don’t choose cars. We choose icons.</h3>
         <p>
-            At Carvium we believe that true luxury is not a matter of options, but of standards.Each vehicle in our
+            At Carvium we believe that true luxury is not a matter of options, but of standards. Each vehicle in our
             collection is more than a car: it is a statement of identity, design and engineering excellence. We don't
             follow trends. We curate the legacy.
             Our passion drives us to offer only the most distinctive, high-performance models, selected for those who
             expect more than movement: they expect excitement.
         </p>
     </div>
-    <div class="intro-image">
-        <img src="${pageContext.request.contextPath}/images/home-car/car-desc-2.png" alt="Carvium Project">
+
+    <div class="intro-video">
+        <video autoplay loop muted oncontextmenu="return false;">
+            <source src="${pageContext.request.contextPath}/video/car-intro.mp4" type="video/mp4">
+        </video>
     </div>
 </div>
 
 
-<div class="main-content">
-    <div class="divider"><span>Brand Auto</span></div>
-
+<div class="brand-container">
     <div class="divider-section">
         <div class="card-grid">
             <div class="card"><img src="${pageContext.request.contextPath}/images/brand-auto/Porsche-logo.png"
@@ -109,24 +97,6 @@
 </div>
 
 <jsp:include page="footer.jsp"/>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const menuButton = document.querySelector('.menu-button');
-        const menuContent = document.querySelector('.menu-content');
-
-        menuButton.addEventListener('click', function (event) {
-            event.stopPropagation();
-            menuContent.classList.toggle('show');
-        });
-
-        document.addEventListener('click', function (event) {
-            if (!menuContent.contains(event.target) && !menuButton.contains(event.target)) {
-                menuContent.classList.remove('show');
-            }
-        });
-    });
-</script>
 
 </body>
 </html>

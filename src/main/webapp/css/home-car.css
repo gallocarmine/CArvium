@@ -2,48 +2,47 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Kai;
+    font-family: Nanum Myeongjo;
 }
 
 body {
     background-color: #ffffff;
 }
 
-.intro-section-1 {
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+}
+
+.video-container video,
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: 1;
+}
+
+.video-container h2 {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    font-family: Sonsie One;
+    font-size: 35px;
+    font-style: italic;
+    color: white;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    z-index: 2;
+}
+
+.intro-section {
     display: flex;
     align-items: center;
+    width: 100%;
     padding: 40px;
-    margin-bottom: -250px;
-}
-
-.intro-section-2 {
-    display: flex;
-    align-items: center;
-    padding: 40px;
-    margin-bottom: -250px;
-}
-
-.intro-section-3 {
-    display: flex;
-    align-items: center;
-    padding: 40px;
-}
-
-.intro-text {
-    flex: 1;
-    font-size: 18px;
-    line-height: 1.6;
-    text-align: justify;
-    max-width: 800px;
-}
-
-.intro-text h2 {
-    font-size: 40px;
-    margin-bottom: 25px;
-}
-
-.intro-text p {
-    font-family: Nanum Myeongjo;
+    background-color: rgba(0,0,0,1);
 }
 
 .intro-image {
@@ -51,20 +50,41 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 750px;
+    background: linear-gradient(to bottom, #ffffff, #000000);
 }
 
 .intro-image img {
+    max-width: 950px;
+    max-height: 500px;
+    padding: 15px;
+    border-radius: 20px;
+    mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+}
+
+.intro-text {
+    flex: 1;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: justify;
+    max-width: 1000px;
+    color: white;
+}
+
+.intro-video {
+    flex: 0.4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro-video video {
     max-width: 650px;
     max-height: 750px;
-    padding: 40px;
-    transition: transform 0.4s ease;
+    padding: 15px;
 }
 
-.intro-image img:hover {
-    transform: scale(1.05);
-}
-
-.main-content {
+.brand-container {
     padding: 40px 40px;
     text-align: center;
 }
@@ -91,6 +111,7 @@ body {
     justify-content: center;
     transition: transform 0.3s ease;
     max-width: 160px;
+    cursor: pointer;
 }
 
 .card:hover {
@@ -109,7 +130,7 @@ body {
     font-weight: bold;
 }
 
-.divider::before,
+.divide::before,
 .divider::after {
     content: '';
     flex: 1;
