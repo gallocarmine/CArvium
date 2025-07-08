@@ -67,30 +67,30 @@
     <div class="divider-section">
         <div class="card-grid">
             <div class="card"><img src="${pageContext.request.contextPath}/images/brand-auto/Porsche-logo.png"
-                                   alt="Card 1"></div>
+                                   alt="Porsche"></div>
             <div class="card"><img src="${pageContext.request.contextPath}/images/brand-auto/Ferrari-logo.png"
-                                   alt="Card 2"></div>
+                                   alt="Ferrari"></div>
             <div class="card"><img src="${pageContext.request.contextPath}/images/brand-auto/Lamborghini-logo.svg"
-                                   alt="Card 3"></div>
+                                   alt="Lamborghini"></div>
             <div class="card"><img src="${pageContext.request.contextPath}/images/brand-auto/RollsRoyce-logo.png"
-                                   alt="Card 4"></div>
+                                   alt="RollsRoyce"></div>
             <div class="card"><img src="${pageContext.request.contextPath}/images/brand-auto/Bugatti-logo.jpg"
-                                   alt="Card 5"></div>
+                                   alt="Bugatti"></div>
         </div>
     </div>
 
     <div class="divider-section">
         <div class="card-grid">
             <div class="card"><img src="${pageContext.request.contextPath}/images/brand-auto/Maserati-logo.png"
-                                   alt="Card 6"></div>
+                                   alt="Maserati"></div>
             <div class="card"><img src="${pageContext.request.contextPath}/images/brand-auto/McLaren-logo.jpg"
-                                   alt="Card 7"></div>
+                                   alt="McLaren"></div>
             <div class="card"><img src="${pageContext.request.contextPath}/images/brand-auto/Mercedes-logo.png"
-                                   alt="Card 8"></div>
+                                   alt="Mercedes"></div>
             <div class="card"><img src="${pageContext.request.contextPath}/images/brand-auto/Audi-logo.png"
-                                   alt="Card 9"></div>
+                                   alt="Audi"></div>
             <div class="card"><img src="${pageContext.request.contextPath}/images/brand-auto/BMW-logo.jpg"
-                                   alt="Card 10"></div>
+                                   alt="BMW"></div>
         </div>
     </div>
     <div class="divider"></div>
