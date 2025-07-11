@@ -3,10 +3,16 @@
 <html>
 <head>
     <title>My Account</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/account/account.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
 <div class="btn-group">
+
+    <button onclick="window.location.href='${pageContext.request.contextPath}/common/StartServlet'" title="Home">
+        <i class="fas fa-home"></i>
+    </button>
 
     <button onclick=switchToData()>My Data</button>
 
@@ -28,8 +34,3 @@
 </html>
 
 <script>document.addEventListener('DOMContentLoaded', function () { switchToData() }); </script>
-
-
-
-
-

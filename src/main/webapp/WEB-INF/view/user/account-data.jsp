@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>My Account - Data</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/account/account-data.css">
 </head>
 <body>
 
