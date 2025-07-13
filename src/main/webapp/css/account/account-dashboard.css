@@ -1,13 +1,11 @@
-/* Stili globali */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Nanum Myeongjo, Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 20px;
     background-color: #f4f7f6;
     color: #333;
 }
 
-/* Contenitore principale */
 .dashboard-container {
     display: flex;
     gap: 24px;
@@ -19,66 +17,16 @@ body {
     padding: 24px;
 }
 
-/* Titolo */
-.dashboard-title {
+.dashboard-container h2 {
     text-align: center;
     width: 100%;
     color: #000;
     margin-bottom: 32px;
-    font-size: 1.8em;
+    font-size: 1.6em;
     font-weight: 600;
 }
 
-/* Colonna sinistra */
-.dashboard-left {
-    flex: 1;
-    padding: 16px;
-    background-color: #f9fbfb;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-}
-
-.dashboard-left h3 {
-    color: #000;
-    font-size: 1.4em;
-    margin-bottom: 16px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 6px;
-}
-
-/* Tabella */
-.dashboard-orders {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    font-size: 0.85em;
-    color: #000000;
-}
-
-.dashboard-orders thead tr {
-    background-color: #333333;
-    color: #fff;
-    text-align: left;
-}
-
-.dashboard-orders th,
-.dashboard-orders td {
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-}
-
-.dashboard-orders tbody tr:nth-child(even) {
-    background-color: #f6f9fc;
-}
-
-.dashboard-orders tbody tr:hover {
-    cursor: pointer;
-    transform: translateY(-2px);
-    transition: all 0.3s ease;
-}
-
-/* Colonna destra */
-.dashboard-right {
+.dashboard-top {
     flex: 1;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -89,9 +37,9 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
 }
 
-.dashboard-right h3 {
+.dashboard-top h3 {
     color: #000;
-    font-size: 1.4em;
+    font-size: 22px;
     margin-bottom: 16px;
     border-bottom: 1px solid #ddd;
     padding-bottom: 6px;
@@ -99,7 +47,6 @@ body {
     text-align: center;
 }
 
-/* Box informativi */
 .gross-revenues-container,
 .total-order-container,
 .spares-sold-container,
@@ -121,27 +68,75 @@ body {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
-/* Testi dei box */
 .gross-revenues-container p,
 .total-order-container p,
 .spares-sold-container p,
 .average-revenue-container p {
-    font-size: 1.5em;
+    font-size: 18px;
     font-weight: 600;
     margin-top: 10px;
-    transition: color 0.3s ease;
 }
 
-/* Colori specifici per box */
 .gross-revenues-container p {
-    color: #28a745;
+    color: #079627;
 }
 .total-order-container p {
     color: #007bff;
 }
 .spares-sold-container p {
-    color: #ffc107;
+    color: #ffbf00;
 }
 .average-revenue-container p {
-    color: #6f42c1;
+    color: #5a00ff;
+}
+
+.dashboard-bottom {
+    flex: 1;
+    padding: 16px;
+    background-color: #f9fbfb;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.dashboard-bottom h3 {
+    color: #000;
+    font-size: 22px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 6px;
+}
+
+.dashboard-orders {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 0.85em;
+    color: #000000;
+}
+
+.dashboard-orders thead tr {
+    background-color: #333333;
+    color: #fff;
+    text-align: left;
+}
+
+.dashboard-orders th,
+.dashboard-orders td {
+    font-size: 16px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+}
+
+.dashboard-orders tbody tr:nth-child(even) {
+    background-color: #f6f9fc;
+}
+
+.dashboard-orders tbody tr:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+#sales-chart {
+    margin-top: 50px;
 }
