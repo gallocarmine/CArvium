@@ -4,24 +4,24 @@
 <head>
     <title>My Account</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/account/account.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
 
 <div class="btn-group">
 
-    <button onclick="window.location.href='${pageContext.request.contextPath}/common/StartServlet'" title="Home">
-        <i class="fas fa-home"></i>
-    </button>
+    <a href="${pageContext.request.contextPath}/common/StartServlet">
+        <i class="bi bi-house-fill"></i>
+    </a>
 
-    <button onclick=switchToData()>My Data</button>
+    <button id="button-data" onclick=switchToData()>My Data</button>
 
     <c:if test="${empty admin}">
-        <button onclick=switchToOrder()>Orders</button>
+        <button id="button-orders" onclick=switchToOrder()>Orders</button>
     </c:if>
 
     <c:if test="${not empty admin}">
-        <button onclick=switchToDashboard()>Dashboard</button>
+        <button id="button-dashboard" onclick=switchToDashboard()>Dashboard</button>
     </c:if>
 
 </div>

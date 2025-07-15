@@ -21,9 +21,9 @@
                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$" readonly>
         <select id="country" name="country" required disabled>
         </select>
+        <input type="number" id="cap" name="cap" max="100000" placeholder="Zip Code" required readonly>
         <input type="text" id="street" name="street" maxlength="30" pattern="^(?!\s*$).+" required readonly>
         <input type="number" id="civic" name="civic" max="1000" placeholder="Civic" required readonly>
-        <input type="number" id="cap" name="cap" max="100000" placeholder="Zip Code" required readonly>
     </form>
 
     <button id="editFields" onclick=editFields()>Edit</button>

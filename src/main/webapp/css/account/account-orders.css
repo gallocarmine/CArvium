@@ -1,16 +1,14 @@
-/* Container for the orders page */
 .orders-container {
     max-width: 900px;
     margin: 50px auto;
     padding: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Nanum Myeongjo, Tahoma, Geneva, Verdana, sans-serif;
     background-color: #ffffff;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Page header */
 .orders-container h2 {
     text-align: center;
     margin-bottom: 30px;
@@ -18,7 +16,6 @@
     color: #333;
 }
 
-/* Table styling */
 .orders-table {
     width: 100%;
     border-collapse: collapse;

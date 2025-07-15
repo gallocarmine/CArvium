@@ -13,7 +13,6 @@
 <div id="page-container">
 <main class="main-content">
 
-<!-- Navbar-->
 <div class="navbar">
     <a href="${pageContext.request.contextPath}/common/StartServlet" class="logo">
         <img src="${pageContext.request.contextPath}/images/white-logo.png" alt="Logo">
@@ -22,13 +21,13 @@
     <div class="login-icon">
         <c:if test = "${empty user}">
             <a href="${pageContext.request.contextPath}/auth/LoginServlet">
-                <i class="bi bi-person-fill" style="font-size: 1.8rem; color: #F5F5F5;"></i>
+                <i class="bi bi-person-fill"></i>
             </a>
         </c:if>
 
         <c:if test = "${not empty user}">
             <a href="${pageContext.request.contextPath}/user/AccountServlet">
-                <i class="bi bi-person-gear" style="font-size: 1.8rem; color: #F5F5F5;"></i>
+                <i class="bi bi-person-gear"></i>
             </a>
         </c:if>
 
@@ -40,7 +39,6 @@
     </div>
 </div>
 
-<!-- Cards -->
 <div class="card-container">
     <div class="card">
         <a href="${pageContext.request.contextPath}/common/CarServlet">

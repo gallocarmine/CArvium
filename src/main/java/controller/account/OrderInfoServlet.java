@@ -50,6 +50,4 @@ public class OrderInfoServlet extends HttpServlet {
         out.flush();
         out.close();
     }
-
-
 }

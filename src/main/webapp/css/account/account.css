@@ -3,38 +3,28 @@
     justify-content: center;
     margin-top: 20px;
     border-bottom: 1px solid #ddd;
+
 }
 
-.btn-group button {
+.btn-group a, button {
+    font-family: Nanum Myeongjo, Tahoma, Geneva, Verdana, sans-serif;
     background: none;
     border: none;
     padding: 14px 20px;
     margin: 0;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
     color: #000000;
     border-bottom: 3px solid transparent;
     transition: border-color 0.3s ease, color 0.3s ease;
 }
 
+.btn-group a:hover,
 .btn-group button:hover,
-.btn-group button.active {
+#button-data.active,
+#button-orders.active,
+#button-dashboard.active {
     border-bottom: 3px solid #640000;
     color: #640000;
     font-weight: 600;
-}
-
-
-.home-link {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 24px;
-    color: #333;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.home-link:hover {
-    color: #007bff;
 }
