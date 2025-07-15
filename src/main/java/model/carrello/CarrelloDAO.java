@@ -38,6 +38,7 @@ public class CarrelloDAO {
         return carts;
     }
 
+
     public int doRetrieveLastID(){
 
         int id = 0;
@@ -74,6 +75,48 @@ public class CarrelloDAO {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setDouble(1, cart.getCostoTotale());
             ps.setInt(2, cart.getQuantita());
+            result = ps.executeUpdate();
+        }
+        catch(SQLException e){
+
+            System.err.println(e.getMessage());
+        }
+
+        return result;
+    }
+
+
+    public int doUpdateByID(Carrello cart){
+
+        int result = 0;
+
+        try(Connection con = new ConPool().getConnection()){
+
+            String sql = "UPDATE Carrello SET CostoTotale = ?, Quantità = ? WHERE ID = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setDouble(1, cart.getCostoTotale());
+            ps.setInt(2, cart.getQuantita());
+            ps.setInt(3, cart.getID());
+            result = ps.executeUpdate();
+        }
+        catch(SQLException e){
+
+            System.err.println(e.getMessage());
+        }
+
+        return result;
+    }
+
+
+    public int doDeleteByID(int id){
+
+        int result = 0;
+
+        try(Connection con = new ConPool().getConnection()){
+
+            String sql = "DELETE FROM Carrello WHERE ID = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
             result = ps.executeUpdate();
         }
         catch(SQLException e){

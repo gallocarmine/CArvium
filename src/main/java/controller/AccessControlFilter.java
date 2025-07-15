@@ -33,7 +33,7 @@ public class AccessControlFilter extends HttpFilter implements Filter {
             return;
         }
 
-        if(path.contains("/admin/") && admin != null){
+        if(path.contains("/admin/") && admin == null){
 
             res.sendRedirect(req.getContextPath() + "/common/StartServlet");
             return;

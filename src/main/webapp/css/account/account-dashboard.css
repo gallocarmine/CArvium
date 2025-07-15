@@ -1,0 +1,141 @@
+body {
+    font-family: Nanum Myeongjo, Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+}
+
+.dashboard-container {
+    display: flex;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+}
+
+.dashboard-container h2 {
+    text-align: center;
+    width: 100%;
+    color: #000;
+    margin-bottom: 32px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.dashboard-top {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 16px;
+    background-color: #f9fbfb;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.dashboard-top h3 {
+    color: #000;
+    font-size: 20px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 6px;
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+.gross-revenues-container,
+.total-order-container,
+.spares-sold-container,
+.average-revenue-container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    color: #000;
+}
+
+.gross-revenues-container:hover,
+.total-order-container:hover,
+.spares-sold-container:hover,
+.average-revenue-container:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.gross-revenues-container p,
+.total-order-container p,
+.spares-sold-container p,
+.average-revenue-container p {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.gross-revenues-container p {
+    color: #079627;
+}
+.total-order-container p {
+    color: #007bff;
+}
+.spares-sold-container p {
+    color: #ffbf00;
+}
+.average-revenue-container p {
+    color: #5a00ff;
+}
+
+.dashboard-bottom {
+    flex: 1;
+    padding: 16px;
+    background-color: #f9fbfb;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.dashboard-bottom h3 {
+    color: #000;
+    font-size: 22px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 6px;
+}
+
+.dashboard-orders {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 0.85em;
+    color: #000000;
+}
+
+.dashboard-orders thead tr {
+    background-color: #333333;
+    color: #fff;
+    text-align: left;
+}
+
+.dashboard-orders th,
+.dashboard-orders td {
+    font-size: 16px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+}
+
+.dashboard-orders tbody tr:nth-child(even) {
+    background-color: #f6f9fc;
+}
+
+.dashboard-orders tbody tr:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+#sales-chart {
+    margin-top: 50px;
+}

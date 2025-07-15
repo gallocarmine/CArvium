@@ -16,12 +16,6 @@ public class AccountServlet extends HttpServlet {
 
         if(request.getParameterMap().isEmpty()){
 
-            HttpSession session = request.getSession();
-            Integer userID = (Integer) session.getAttribute("user");
-
-            Utente user = new UtenteDAO().doRetrieveByID(userID);
-            request.setAttribute("userInfo", user);
-
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/user/account.jsp");
             dispatcher.forward(request, response);
         }

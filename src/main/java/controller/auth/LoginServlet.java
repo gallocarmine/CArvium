@@ -1,4 +1,4 @@
-package controller.account;
+package controller.auth;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -37,7 +37,8 @@ public class LoginServlet extends HttpServlet {
 
                     HttpSession session = request.getSession();
                     session.setAttribute("user", user.getID());
-                    session.setAttribute("admin", user.getAdmin());
+                    session.setAttribute("idCart", user.getIDCarrello());
+                    if(user.getAdmin()){ session.setAttribute("admin", user.getAdmin()); }
                 }
             }
 

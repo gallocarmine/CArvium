@@ -22,8 +22,9 @@ public class AggiungereDAO {
 
                 int idCarrello = rs.getInt("ID_Carrello");
                 int idRicambio = rs.getInt("ID_Ricambi");
+                int quantita = rs.getInt("Quantità");
 
-                Aggiungere add = new Aggiungere(idCarrello, idRicambio);
+                Aggiungere add = new Aggiungere(idCarrello, idRicambio, quantita);
                 adds.add(add);
             }
 
@@ -43,10 +44,11 @@ public class AggiungereDAO {
 
         try(Connection con = new ConPool().getConnection()){
 
-            String sql = "INSERT INTO Aggiungere (ID_Carrello, ID_Ricambi) VALUES (?,?)";
+            String sql = "INSERT INTO Aggiungere (ID_Carrello, ID_Ricambi, Quantità) VALUES (?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, add.getIDCarrello());
             ps.setInt(2, add.getIDRicambio());
+            ps.setInt(3, add.getQuantita());
             result = ps.executeUpdate();
         }
         catch(SQLException e){

@@ -7,16 +7,18 @@ public class Ricambi {
     private String nome;
     private double prezzo;
     private String categoria;
+    private int quantita;
     private LocalDateTime anno;
     private String pathname;
     private int IDModelloAuto;
     private int IDMarcaAuto;
 
-    public Ricambi(int ID, String nome, double prezzo, String categoria, LocalDateTime anno, String pathname, int IDModelloAuto, int IDMarcaAuto) {
+    public Ricambi(int ID, String nome, double prezzo, String categoria, int quantita, LocalDateTime anno, String pathname, int IDModelloAuto, int IDMarcaAuto) {
         this.ID = ID;
         this.nome = nome;
         this.prezzo = prezzo;
         this.categoria = categoria;
+        this.quantita = quantita;
         this.anno = anno;
         this.pathname = pathname;
         this.IDModelloAuto = IDModelloAuto;
@@ -38,6 +40,8 @@ public class Ricambi {
     public String getCategoria() {
         return categoria;
     }
+
+    public int getQuantita() {return quantita;}
 
     public LocalDateTime getAnno() {
         return anno;
@@ -71,6 +75,8 @@ public class Ricambi {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
+    public void setQuantita(int quantita) {this.quantita = quantita;}
 
     public void setAnno(LocalDateTime anno) {
         this.anno = anno;
