@@ -8,19 +8,17 @@ public class Ricambi {
     private double prezzo;
     private String categoria;
     private int quantita;
-    private LocalDateTime anno;
-    private String pathname;
+    private int anno;
     private int IDModelloAuto;
     private int IDMarcaAuto;
 
-    public Ricambi(int ID, String nome, double prezzo, String categoria, int quantita, LocalDateTime anno, String pathname, int IDModelloAuto, int IDMarcaAuto) {
+    public Ricambi(int ID, String nome, double prezzo, String categoria, int quantita, int anno, int IDModelloAuto, int IDMarcaAuto) {
         this.ID = ID;
         this.nome = nome;
         this.prezzo = prezzo;
         this.categoria = categoria;
         this.quantita = quantita;
         this.anno = anno;
-        this.pathname = pathname;
         this.IDModelloAuto = IDModelloAuto;
         this.IDMarcaAuto = IDMarcaAuto;
     }
@@ -41,14 +39,10 @@ public class Ricambi {
         return categoria;
     }
 
-    public int getQuantita() {return quantita;}
+    public int getQuantita() { return quantita; }
 
-    public LocalDateTime getAnno() {
+    public int getAnno() {
         return anno;
-    }
-
-    public String getPathname() {
-        return pathname;
     }
 
     public int getIDModelloAuto() {
@@ -76,14 +70,10 @@ public class Ricambi {
         this.categoria = categoria;
     }
 
-    public void setQuantita(int quantita) {this.quantita = quantita;}
+    public void setQuantita(int quantita) { this.quantita = quantita; }
 
-    public void setAnno(LocalDateTime anno) {
+    public void setAnno(int anno) {
         this.anno = anno;
-    }
-
-    public void setPathname(String pathname) {
-        this.pathname = pathname;
     }
 
     public void setIDModelloAuto(int IDModelloAuto) {

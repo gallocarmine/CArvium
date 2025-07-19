@@ -27,12 +27,11 @@ public class RicambiDAO {
                 double prezzo = rs.getDouble("Prezzo");
                 String categoria = rs.getString("Categoria");
                 int quantita = rs.getInt("Quantità");
-                LocalDateTime anno = rs.getTimestamp("Anno").toLocalDateTime();
-                String pathname = rs.getString("Pathname");
+                int anno = rs.getInt("Anno");
                 int idModelloAuto = rs.getInt("ID_ModelloAuto");
                 int idMarcaAuto = rs.getInt("ID_MarcaAuto");
 
-                Ricambi spare = new Ricambi(id, nome, prezzo, categoria, quantita, anno, pathname, idModelloAuto, idMarcaAuto);
+                Ricambi spare = new Ricambi(id, nome, prezzo, categoria, quantita, anno, idModelloAuto, idMarcaAuto);
                 spares.add(spare);
             }
 
@@ -64,13 +63,12 @@ public class RicambiDAO {
                 double prezzo = rs.getDouble("Prezzo");
                 String categoria= rs.getString("Categoria");
                 int quantita = rs.getInt("Quantità");
-                LocalDateTime anno = rs.getTimestamp("Anno").toLocalDateTime();
-                String pathname = rs.getString("Pathname");
+                int anno = rs.getInt("Anno");
                 int idModelloAuto = rs.getInt("ID_ModelloAuto");
                 int idMarcaAuto = rs.getInt("ID_MarcaAuto");
 
 
-                spare = new Ricambi(id, nome, prezzo, categoria, quantita, anno, pathname, idModelloAuto, idMarcaAuto);
+                spare = new Ricambi(id, nome, prezzo, categoria, quantita, anno, idModelloAuto, idMarcaAuto);
             }
 
             rs.close();

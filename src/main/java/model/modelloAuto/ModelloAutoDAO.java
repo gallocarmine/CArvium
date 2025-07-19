@@ -2,10 +2,7 @@ package model.modelloAuto;
 
 import model.ConPool;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,17 +21,62 @@ public class ModelloAutoDAO {
 
             while(rs.next()){
 
-                int id = rs.getInt("ID");
-                int idMarcaAuto = rs.getInt("ID_MarcaAuto");
-                String nome = rs.getString("Nome");
+                String id = rs.getString("ID");
+                String idMarcaAuto = rs.getString("ID_MarcaAuto");
                 double prezzo = rs.getDouble("Prezzo");
                 String categoria = rs.getString("Categoria");
                 String descrizione = rs.getString("Descrizione");
-                LocalDateTime anno = rs.getTimestamp("Anno").toLocalDateTime();
-                String pathname = rs.getString("Pathname");
+                int anno = rs.getInt("Anno");
 
-                ModelloAuto model = new ModelloAuto(id, idMarcaAuto, nome, prezzo, categoria, descrizione, anno, pathname);
+                ModelloAuto model = new ModelloAuto(id, idMarcaAuto, prezzo, categoria, descrizione, anno);
                 models.add(model);
+            }
+
+            rs.close();
+        }
+        catch(SQLException e){
+
+            System.err.println(e.getMessage());
+        }
+
+        return models;
+    }
+
+    public List<ModelloAuto> doRetrieveByFilter(String brand, String model, int year, int minPrice, int maxPrice) {
+
+        List<ModelloAuto> models = new ArrayList<>();
+
+        try(Connection con = new ConPool().getConnection()){
+
+            String sql = "SELECT * FROM ModelloAuto WHERE (? = 'all' OR  Id_MarcaAuto = ?) " +
+                    "AND (? = 'all' OR  Categoria = ?) AND (? = 0 OR Anno = ?) " +
+                    "AND ((? = 0 OR Prezzo >= ?) AND (? = 0 OR Prezzo <= ?))";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, brand);
+            ps.setString(2, brand);
+            ps.setString(3, model);
+            ps.setString(4, model);
+            ps.setInt(5, year);
+            ps.setInt(6, year);
+            ps.setInt(7, minPrice);
+            ps.setInt(8, minPrice);
+            ps.setInt(9, maxPrice);
+            ps.setInt(10, maxPrice);
+
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+
+                String id = rs.getString("ID");
+                String idMarcaAuto = rs.getString("ID_MarcaAuto");
+                double prezzo = rs.getDouble("Prezzo");
+                String categoria = rs.getString("Categoria");
+                String descrizione = rs.getString("Descrizione");
+                int anno = rs.getInt("Anno");
+
+                ModelloAuto modelCar = new ModelloAuto(id, idMarcaAuto, prezzo, categoria, descrizione, anno);
+                models.add(modelCar);
             }
 
             rs.close();
