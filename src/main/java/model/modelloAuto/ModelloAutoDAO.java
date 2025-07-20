@@ -42,6 +42,42 @@ public class ModelloAutoDAO {
         return models;
     }
 
+
+    public ModelloAuto doRetrieveById(String modelId, String brandId){
+
+        ModelloAuto model = null;
+
+        try(Connection con = new ConPool().getConnection()){
+
+            String sql = "SELECT * FROM ModelloAuto WHERE ID = ? AND ID_MarcaAuto = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1, modelId);
+            st.setString(2, brandId);
+            ResultSet rs = st.executeQuery();
+
+            while(rs.next()){
+
+                String id = rs.getString("ID");
+                String idMarcaAuto = rs.getString("ID_MarcaAuto");
+                double prezzo = rs.getDouble("Prezzo");
+                String categoria = rs.getString("Categoria");
+                String descrizione = rs.getString("Descrizione");
+                int anno = rs.getInt("Anno");
+
+                model = new ModelloAuto(id, idMarcaAuto, prezzo, categoria, descrizione, anno);
+            }
+
+            rs.close();
+        }
+        catch(SQLException e){
+
+            System.err.println(e.getMessage());
+        }
+
+        return model;
+    }
+
+
     public List<ModelloAuto> doRetrieveByFilter(String brand, String model, int year, int minPrice, int maxPrice) {
 
         List<ModelloAuto> models = new ArrayList<>();

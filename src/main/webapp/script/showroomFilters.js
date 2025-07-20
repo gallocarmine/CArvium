@@ -45,6 +45,7 @@ function filterCar(brandFilter, categoryFilter) {
             data.carsInfo.forEach(carInfo => {
 
                 const car = document.createElement('div');
+                car.id = 'car-card';
 
                 const brand = document.createElement('h3');
                 brand.textContent = carInfo.idmarcaAuto;
@@ -83,9 +84,59 @@ function filterCar(brandFilter, categoryFilter) {
                 description.id = 'description-model';
                 car.appendChild(description);
 
+                if (isUserLoggedIn) {
+
+                    const icon = document.createElement('i');
+
+                    isWishlisted(carInfo.id, carInfo.idmarcaAuto)
+                        .then(data => {
+
+                            if(data.result === true){
+
+                                icon.className = 'bi bi-heart-fill';
+                            }
+                            else{
+
+                                icon.className = 'bi bi-heart';
+                            }
+                        })
+                        .catch(error => {
+                            console.error('There was a problem with the fetch operation:', error);
+                        });
+
+
+                    let clickTimeout = null;
+
+                    icon.addEventListener('click', function (event) {
+
+                        if (clickTimeout) return;
+                        const clickedIcon = event.currentTarget;
+
+                        clickTimeout = setTimeout(() => {
+
+                            removeFromWishlist(carInfo.id, carInfo.idmarcaAuto, clickedIcon);
+                            clickTimeout = null;
+                        }, 250);
+                    });
+
+                    icon.addEventListener('dblclick', function (event) {
+
+                        if (clickTimeout) {
+
+                            clearTimeout(clickTimeout);
+                            clickTimeout = null;
+                        }
+
+                        const clickedIcon = event.currentTarget;
+                        addToWishlist(carInfo.id, carInfo.idmarcaAuto, clickedIcon);
+                    });
+
+                    icon.id = 'wishlist-icon';
+                    car.appendChild(icon)
+                }
+
                 showroom.appendChild(car);
             })
-
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
@@ -99,17 +150,17 @@ function changeOptionFilter(data) {
     const category = document.getElementById('category-filter').value;
 
     const currentBrand = brand;
-    const currentcategory = category;
+    const currentCategory = category;
 
     if (brand === 'all' && category === 'all') {
 
         const categoryFilter = document.getElementById('category-filter');
         categoryFilter.textContent = '';
 
-        const optioncategory = document.createElement('option');
-        optioncategory.value = 'all';
-        optioncategory.textContent = 'All';
-        categoryFilter.appendChild(optioncategory);
+        const optionCategory = document.createElement('option');
+        optionCategory.value = 'all';
+        optionCategory.textContent = 'All';
+        categoryFilter.appendChild(optionCategory);
 
         data.categories.forEach(category => {
             const opt = document.createElement('option');
@@ -132,7 +183,8 @@ function changeOptionFilter(data) {
             opt.value = brand;
             brandFilter.appendChild(opt);
         });
-    } else {
+    }
+    else {
 
         if (brand !== 'all' && category === 'all') {
 
@@ -151,8 +203,8 @@ function changeOptionFilter(data) {
                 categoryFilter.appendChild(opt);
             });
 
-            if ([...categoryFilter.options].some(opt => opt.value === currentcategory)) {
-                categoryFilter.value = currentcategory;
+            if ([...categoryFilter.options].some(opt => opt.value === currentCategory)) {
+                categoryFilter.value = currentCategory;
             }
 
         } else {
@@ -162,8 +214,8 @@ function changeOptionFilter(data) {
                     insertDefaultOption('category-filter', newData.categories);
 
                     const categoryFilter = document.getElementById('category-filter');
-                    if ([...categoryFilter.options].some(opt => opt.value === currentcategory)) {
-                        categoryFilter.value = currentcategory;
+                    if ([...categoryFilter.options].some(opt => opt.value === currentCategory)) {
+                        categoryFilter.value = currentCategory;
                     }
                 });
         }

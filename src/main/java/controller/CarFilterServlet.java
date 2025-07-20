@@ -1,17 +1,14 @@
 package controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import model.modelloAuto.ModelloAuto;
 import model.modelloAuto.ModelloAutoDAO;
-import model.ordine.Ordine;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,7 +20,7 @@ public class CarFilterServlet extends HttpServlet {
 
         request.setAttribute("selectedBrand", request.getParameter("brand"));
         request.setAttribute("selectedCategory", request.getParameter("category"));
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/common/car/car-showroom.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/common/car/showroom-car.jsp");
         dispatcher.forward(request, response);
     }
 

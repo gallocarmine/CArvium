@@ -118,7 +118,7 @@
             <img src="${pageContext.request.contextPath}/images/white-logo.png" alt="Logo">
         </a>
 
-        <div class="login-icon">
+        <div class="icons">
             <c:if test="${empty user}">
                 <a href="${pageContext.request.contextPath}/auth/LoginServlet">
                     <i class="bi bi-person-fill"></i>

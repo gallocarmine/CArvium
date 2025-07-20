@@ -1,0 +1,25 @@
+.wishlist-container {
+    position: fixed;
+    top: 79px;
+    bottom: 0;
+    right: 0;
+    width: 350px;
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 200;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    overflow-y: auto;
+    transform: translateX(100%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.8s ease;
+}
+
+.wishlist-container.show {
+    transform: translateX(0);
+    pointer-events: auto;
+    opacity: 1;
+}

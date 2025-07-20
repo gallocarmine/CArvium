@@ -20,7 +20,7 @@ body {
     padding-bottom: 10px;
 }
 
-.login-icon {
+.icons {
     position: absolute;
     right: 20px;
     top: 50%;
@@ -29,8 +29,8 @@ body {
     gap: 10px;
 }
 
-.login-icon i {
+.icons i {
     color: #F5F5F5;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     cursor: pointer;
 }

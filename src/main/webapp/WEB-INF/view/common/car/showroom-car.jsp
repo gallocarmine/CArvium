@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Showroom</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/account/wishlist.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
@@ -55,10 +56,16 @@
 </div>
 
 
+<div class="wishlist-container">
+
+</div>
+
+
 <jsp:include page="../footer.jsp"/>
 
 <script src="${pageContext.request.contextPath}/script/showroomFilters.js"></script>
-
+<script src="${pageContext.request.contextPath}/script/wishlistShowroom.js"></script>
+<script>  const isUserLoggedIn = ${user == null ? 'false' : 'true'}; </script>
 <script>
 
     document.addEventListener("DOMContentLoaded", () => {
