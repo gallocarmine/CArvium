@@ -27,7 +27,7 @@
             <option value="bmw">BMW</option>
         </select>
 
-        <label for="category-filter">Model</label>
+        <label for="category-filter">Category</label>
         <select onchange=filterCar() name="category" id="category-filter">
             <option value="all">All</option>
             <option value="supercar">Supercar</option>

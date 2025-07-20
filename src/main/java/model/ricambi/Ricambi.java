@@ -3,18 +3,16 @@ package model.ricambi;
 import java.time.LocalDateTime;
 
 public class Ricambi {
-    private int ID;
-    private String nome;
+    private String ID;
     private double prezzo;
     private String categoria;
     private int quantita;
     private int anno;
-    private int IDModelloAuto;
-    private int IDMarcaAuto;
+    private String IDModelloAuto;
+    private String IDMarcaAuto;
 
-    public Ricambi(int ID, String nome, double prezzo, String categoria, int quantita, int anno, int IDModelloAuto, int IDMarcaAuto) {
+    public Ricambi(String ID, double prezzo, String categoria, int quantita, int anno, String IDModelloAuto, String IDMarcaAuto) {
         this.ID = ID;
-        this.nome = nome;
         this.prezzo = prezzo;
         this.categoria = categoria;
         this.quantita = quantita;
@@ -23,12 +21,8 @@ public class Ricambi {
         this.IDMarcaAuto = IDMarcaAuto;
     }
 
-    public int getID() {
+    public String getID() {
         return ID;
-    }
-
-    public String getNome() {
-        return nome;
     }
 
     public double getPrezzo() {
@@ -45,21 +39,17 @@ public class Ricambi {
         return anno;
     }
 
-    public int getIDModelloAuto() {
+    public String getIDModelloAuto() {
         return IDModelloAuto;
     }
 
-    public int getIDMarcaAuto() {
+    public String getIDMarcaAuto() {
         return IDMarcaAuto;
     }
 
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public void setPrezzo(double prezzo) {
@@ -76,11 +66,11 @@ public class Ricambi {
         this.anno = anno;
     }
 
-    public void setIDModelloAuto(int IDModelloAuto) {
+    public void setIDModelloAuto(String IDModelloAuto) {
         this.IDModelloAuto = IDModelloAuto;
     }
 
-    public void setIDMarcaAuto(int IDMarcaAuto) {
+    public void setIDMarcaAuto(String IDMarcaAuto) {
         this.IDMarcaAuto = IDMarcaAuto;
     }
 }

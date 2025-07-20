@@ -21,7 +21,7 @@ public class AggiungereDAO {
             while(rs.next()){
 
                 int idCarrello = rs.getInt("ID_Carrello");
-                int idRicambio = rs.getInt("ID_Ricambi");
+                String idRicambio = rs.getString("ID_Ricambi");
                 int quantita = rs.getInt("Quantità");
 
                 Aggiungere add = new Aggiungere(idCarrello, idRicambio, quantita);
@@ -47,7 +47,7 @@ public class AggiungereDAO {
             String sql = "INSERT INTO Aggiungere (ID_Carrello, ID_Ricambi, Quantità) VALUES (?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, add.getIDCarrello());
-            ps.setInt(2, add.getIDRicambio());
+            ps.setString(2, add.getIDRicambio());
             ps.setInt(3, add.getQuantita());
             result = ps.executeUpdate();
         }
