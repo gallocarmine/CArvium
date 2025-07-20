@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    font-family: Nanum Myeongjo;
+    background-color: #ffffff;
+}
+
+.navbar-shop {
+    background-color: #640000EF;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    padding: 2px 10px;
+}
+
+.logo img {
+    width: 250px;
+    height: auto;
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.icons {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.icons i {
+    color: white;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
