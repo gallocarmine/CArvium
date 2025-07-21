@@ -3,6 +3,7 @@
 <head>
     <title>Home-Shop</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/shop/home-shop.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/shop/cart.css">
 </head>
 <body>
 
@@ -60,9 +61,24 @@
 </div>
 
 
+<div class="cart-container">
+
+    <h3>Cart</h3>
+
+    <div class="spare-container">
+
+    </div>
+
+    <button id="order-button">
+        <span>Fast Checkout</span><br>
+        <span id="second-line"></span>
+    </button>
+</div>
+
 <jsp:include page="../footer.jsp"/>
+
+<script src="${pageContext.request.contextPath}/script/shopFilters.js"></script>
+<script src="${pageContext.request.contextPath}/script/cartShop.js"></script>
 
 </body>
 </html>
-
-<script src="${pageContext.request.contextPath}/script/shopFilters.js"></script>

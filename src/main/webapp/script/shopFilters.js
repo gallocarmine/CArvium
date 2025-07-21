@@ -1,3 +1,6 @@
+document.addEventListener('DOMContentLoaded', function () { filterShop() });
+
+
 function fetchFilterShop(brandFilter, categoryFilter) {
 
     if (brandFilter != null) {
@@ -69,18 +72,72 @@ function filterShop(brandFilter, categoryFilter) {
                 category.id = 'category-title';
                 spare.appendChild(category);
 
-                const price = document.createElement('p');
-                price.textContent = spareInfo.prezzo + ' $';
-                price.id = 'price-spare'
-                spare.appendChild(price);
-
                 const year = document.createElement('p');
                 year.textContent = spareInfo.anno;
-                year.id = 'year-model';
+                year.id = 'year-spare';
                 spare.appendChild(year);
 
+                const quantity = document.createElement('input');
+                quantity.id = 'quantity-spare';
+                quantity.type = 'number';
+                quantity.max = spareInfo.quantita;
+                quantity.min = '1';
+                quantity.textContent = '1';
+                quantity.value = '1';
+                quantity.step = '1';
+
+                quantity.addEventListener('input', function () {
+
+                    const val = parseInt(quantity.value);
+
+                    if (val > quantity.max) {
+                        quantity.value = quantity.max;
+                    }
+                    else{
+                        if (val < quantity.min) {
+                            quantity.value = quantity.min;
+                        }
+                    }
+                });
+
+                spare.appendChild(quantity);
+
+                const availableQuantity = document.createElement('p');
+                if(spareInfo.quantita === 0) {
+
+                    availableQuantity.textContent = 'Out of stock';
+                }
+                else{
+                    availableQuantity.textContent = 'Only ' + spareInfo.quantita + ' in stock available';
+                }
+                availableQuantity.id = 'quantity-available';
+                spare.appendChild(availableQuantity);
+
+                const price = document.createElement('p');
+                price.textContent = spareInfo.prezzo + ' $';
+                price.id = 'price-spare';
+                spare.appendChild(price);
+
+
+                if(spareInfo.quantita !== 0){
+
+                    const icon = document.createElement('i');
+                    icon.className = 'bi-cart-plus';
+                    icon.id = 'cart-icon';
+
+                    icon.addEventListener('click', function (event) {
+
+                        const clickedIcon = event.currentTarget;
+
+                        const container = clickedIcon.closest('#spare-card');
+                        const quantityInput = container.querySelector('#quantity-spare').value;
+                        addToCart(spareInfo.id, quantityInput, clickedIcon);
+                    });
+
+                    spare.appendChild(icon);
+                }
                 shop.appendChild(spare);
-            })
+            });
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
@@ -127,8 +184,7 @@ function changeOptionFilter(data) {
             opt.value = brand;
             brandFilter.appendChild(opt);
         });
-    }
-    else {
+    } else {
 
         if (brand !== 'all' && category === 'all') {
 

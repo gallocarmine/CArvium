@@ -1,11 +1,8 @@
 package model.ricambi;
 
 import model.ConPool;
-import model.modelloAuto.ModelloAuto;
-import model.utente.Utente;
 
 import java.sql.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +43,7 @@ public class RicambiDAO {
     }
 
 
-    public Ricambi doRetrieveByID(String id){
+    public Ricambi doRetrieveById(String id){
 
         Ricambi spare = null;
 

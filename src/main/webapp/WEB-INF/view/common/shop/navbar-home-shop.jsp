@@ -16,7 +16,7 @@
 
     <div class="icons">
 
-        <i class="bi bi-cart2"></i>
+        <i id="cart-button" class="bi bi-cart2"></i>
 
         <c:if test="${empty user}">
             <a href="${pageContext.request.contextPath}/auth/LoginServlet">

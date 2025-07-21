@@ -3,13 +3,13 @@ package model.aggiungere;
 public class Aggiungere {
 
     private int IDCarrello;
-    private String IDRicambi;
+    private String IDRicambio;
     private int quantita;
 
-    public Aggiungere(int IDCarrello, String IDRicambi, int quantita) {
+    public Aggiungere(int IDCarrello, String IDRicambio, int quantita) {
 
         this.IDCarrello = IDCarrello;
-        this.IDRicambi = IDRicambi;
+        this.IDRicambio = IDRicambio;
         this.quantita = quantita;
     }
 
@@ -18,7 +18,7 @@ public class Aggiungere {
     }
 
     public String getIDRicambio() {
-        return IDRicambi;
+        return IDRicambio;
     }
 
     public int getQuantita() {return quantita;}
@@ -29,7 +29,7 @@ public class Aggiungere {
     }
 
     public void setIDRicambio(String IDRicambi) {
-        this.IDRicambi = IDRicambi;
+        this.IDRicambio = IDRicambi;
     }
 
     public void setQuantita(int quantita) {this.quantita = quantita;}
