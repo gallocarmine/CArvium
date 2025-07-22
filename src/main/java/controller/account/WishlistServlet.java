@@ -41,7 +41,6 @@ public class WishlistServlet extends HttpServlet {
 
             if (result == 1) {
 
-
                 ModelloAuto model = new ModelloAutoDAO().doRetrieveById(modelId, brandId);
 
                 if (model != null) {
@@ -97,7 +96,7 @@ public class WishlistServlet extends HttpServlet {
 
                 } else {
 
-                    List<Salvare> saves = new SalvareDAO().doRetrieveAll();
+                    List<Salvare> saves = new SalvareDAO().doRetrieveAllById(userId);
                     List<ModelloAuto> models = new ArrayList<>();
 
                     for (Salvare save : saves) {

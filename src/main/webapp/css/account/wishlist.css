@@ -1,4 +1,5 @@
 .wishlist-container {
+    font-family: Nanum Myeongjo, Tahoma, Geneva, Verdana, sans-serif;
     position: fixed;
     top: 79px;
     bottom: 0;
@@ -24,7 +25,7 @@
     opacity: 1;
 }
 
-/* Wishlist car card container */
+
 #car-container {
     background-color: #fefefe;
     border-radius: 12px;

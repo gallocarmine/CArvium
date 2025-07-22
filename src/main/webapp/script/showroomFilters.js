@@ -132,7 +132,7 @@ function filterCar(brandFilter, categoryFilter) {
                     });
 
                     icon.id = 'wishlist-icon';
-                    car.appendChild(icon)
+                    car.appendChild(icon);
                 }
 
                 showroom.appendChild(car);
@@ -307,6 +307,33 @@ function changeOptionFilter(data) {
 
     const maxPrice = document.getElementById('max-price');
     maxPrice.placeholder = data.maxPrice;
+
+
+    minPrice.addEventListener('change', function () {
+
+        let min = Number(minPrice.placeholder);
+        let max = Number(maxPrice.placeholder);
+
+        const val = parseInt(minPrice.value);
+
+        if (val < min || val > max) {
+
+            minPrice.value = min;
+        }
+    });
+
+    maxPrice.addEventListener('change', function () {
+
+        let min = Number(minPrice.placeholder);
+        let max = Number(maxPrice.placeholder);
+
+        const val = parseInt(maxPrice.value);
+
+        if (val > max || val < min) {
+
+            maxPrice.value = max;
+        }
+    });
 }
 
 

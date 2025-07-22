@@ -33,7 +33,7 @@
             <option value="all">All</option>
             <option value="supercar">Supercar</option>
             <option value="suv">SUV</option>
-            <option value="coupe">Coupè</option>
+            <option value="coupe">Coupe</option>
             <option value="cabrio">Cabrio</option>
         </select>
 

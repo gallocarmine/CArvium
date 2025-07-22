@@ -1,3 +1,7 @@
+* {
+    font-family: Nanum Myeongjo, Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .showroom-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
