@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Kai;
+    font-family: Nanum Myeongjo, Tahoma, Geneva, Verdana, sans-serif;
 }
 
 html, body {
@@ -10,13 +10,13 @@ html, body {
     width: 100%;
 }
 
-.login-container {
+.signin-container {
     display: flex;
     height: 100vh;
     width: 100vw;
 }
 
-.login{
+.signin{
     width: 50%;
     background-color: #ffffff;
     display: flex;
@@ -27,7 +27,7 @@ html, body {
     padding: 20px;
 }
 
-.login-logo {
+.signin-logo {
     position: absolute;
     top: 20px;
     left: 36%;
@@ -133,7 +133,7 @@ input:invalid:not(:placeholder-shown) {
     margin-left: 0.5em;
 }
 
-.login-image {
+.signin-image {
     width: 50%;
     overflow: hidden;
     display: flex;
@@ -141,7 +141,7 @@ input:invalid:not(:placeholder-shown) {
     justify-content: center;
 }
 
-.login-image img {
+.signin-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;

@@ -7,6 +7,8 @@
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/results/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/results" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/results/login.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/results" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/results/signin.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/results" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/common/car/car-showroom.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/common/car" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/common/car/navbar-home-car.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/common/car" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/account-dashboard.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user/account-orders.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user" />

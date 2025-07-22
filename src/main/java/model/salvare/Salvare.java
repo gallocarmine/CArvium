@@ -2,21 +2,21 @@ package model.salvare;
 
 public class Salvare {
 
-    private int IDModelloAuto;
-    private int IDMarcaAuto;
+    private String IDModelloAuto;
+    private String IDMarcaAuto;
     private int IDUtente;
 
-    public Salvare(int IDModelloAuto, int IDMarcaAuto, int IDUtente) {
+    public Salvare(String IDModelloAuto, String IDMarcaAuto, int IDUtente) {
         this.IDModelloAuto = IDModelloAuto;
         this.IDMarcaAuto = IDMarcaAuto;
         this.IDUtente = IDUtente;
     }
 
-    public int getIDModelloAuto() {
+    public String getIDModelloAuto() {
         return IDModelloAuto;
     }
 
-    public int getIDMarcaAuto() {
+    public String getIDMarcaAuto() {
         return IDMarcaAuto;
     }
 
@@ -24,15 +24,15 @@ public class Salvare {
         return IDUtente;
     }
 
-    public void setIDModelloAuto(int IDModelloAuto) {
+    public void setIDModelloAuto(String IDModelloAuto) {
         this.IDModelloAuto = IDModelloAuto;
     }
 
-    public void setIDMarcaAuto(int IDMarcaAuto) {
+    public void setIDMarcaAuto(String IDMarcaAuto) {
         this.IDMarcaAuto = IDMarcaAuto;
     }
 
-    public void setIDUtente(int IDUtente) {
+    public void setIDUtente(int  IDUtente) {
         this.IDUtente = IDUtente;
     }
 }

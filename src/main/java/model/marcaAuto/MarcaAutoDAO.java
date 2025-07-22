@@ -23,11 +23,9 @@ public class MarcaAutoDAO {
 
             while(rs.next()){
 
-                int id = rs.getInt("ID");
-                String nome = rs.getString("Nome");
-                String pathname = rs.getString("Pathname");
+                String id = rs.getString("ID");
 
-                MarcaAuto brand = new MarcaAuto(id, nome, pathname);
+                MarcaAuto brand = new MarcaAuto(id);
                 brands.add(brand);
             }
 

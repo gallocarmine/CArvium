@@ -4,37 +4,30 @@ import java.time.LocalDateTime;
 
 public class ModelloAuto {
 
-    private int ID;
-    private int IDMarcaAuto;
-    private String nome;
+    private String ID;
+    private String IDMarcaAuto;
     private double prezzo;
     private String categoria;
     private String descrizione;
-    private LocalDateTime data;
+    private int anno;
     private String pathanme;
 
-    public ModelloAuto(int ID, int IDMarcaAuto, String nome, double prezzo, String categoria, String descrizione, LocalDateTime data, String pathanme) {
+    public ModelloAuto(String ID, String IDMarcaAuto, double prezzo, String categoria, String descrizione, int anno) {
 
         this.ID = ID;
         this.IDMarcaAuto = IDMarcaAuto;
-        this.nome = nome;
         this.prezzo = prezzo;
         this.categoria = categoria;
         this.descrizione = descrizione;
-        this.data = data;
-        this.pathanme = pathanme;
+        this.anno = anno;
     }
 
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
-    public int getIDMarcaAuto() {
+    public String getIDMarcaAuto() {
         return IDMarcaAuto;
-    }
-
-    public String getNome() {
-        return nome;
     }
 
     public double getPrezzo() {
@@ -49,26 +42,16 @@ public class ModelloAuto {
         return descrizione;
     }
 
-    public LocalDateTime getData() {
-        return data;
-    }
-
-    public String getPathanme() {
-        return pathanme;
+    public int getAnno() {
+        return anno;
     }
 
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
-    public void setIDMarcaAuto(int IDMarcaAuto) {
-        this.IDMarcaAuto = IDMarcaAuto;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    public void setIDMarcaAuto(String IDMarcaAuto) { this.IDMarcaAuto = IDMarcaAuto;}
 
     public void setPrezzo(double prezzo) {
         this.prezzo = prezzo;
@@ -82,11 +65,7 @@ public class ModelloAuto {
         this.descrizione = descrizione;
     }
 
-    public void setData(LocalDateTime data) {
-        this.data = data;
-    }
-
-    public void setPathanme(String pathanme) {
-        this.pathanme = pathanme;
+    public void setAnno(int anno) {
+        this.anno = anno;
     }
 }

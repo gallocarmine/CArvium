@@ -1,4 +1,4 @@
-package controller;
+package controller.car;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -14,7 +14,7 @@ public class CarServlet extends HttpServlet {
 
         if(request.getParameterMap().isEmpty()){
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/common/home-car.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/common/car/home-car.jsp");
             dispatcher.forward(request, response);
         }
     }

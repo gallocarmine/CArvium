@@ -5,6 +5,7 @@
 <head>
 
     <title>Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/navbar-home.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/card.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -18,7 +19,7 @@
         <img src="${pageContext.request.contextPath}/images/white-logo.png" alt="Logo">
     </a>
 
-    <div class="login-icon">
+    <div class="icons">
         <c:if test = "${empty user}">
             <a href="${pageContext.request.contextPath}/auth/LoginServlet">
                 <i class="bi bi-person-fill"></i>

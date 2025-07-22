@@ -32,4 +32,3 @@ function validatePassword(parameter) {
     return pattern.test(parameter);
 }
 
-

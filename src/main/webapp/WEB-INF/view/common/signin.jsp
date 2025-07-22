@@ -7,18 +7,18 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/signin.css">
 </head>
 <body>
-<div class="login-container">
+<div class="signin-container">
 
-    <div class="login-image">
+    <div class="signin-image">
         <img src="${pageContext.request.contextPath}/images/register-image.png" alt="Register Image">
     </div>
 
-    <div class="login">
+    <div class="signin">
 
         <form action="${pageContext.request.contextPath}/auth/SigninServlet" method="POST" id="signinForm">
 
             <a  href="${pageContext.request.contextPath}/common/StartServlet">
-                <img src="${pageContext.request.contextPath}/images/black-logo.png" alt="Logo" class="login-logo">
+                <img src="${pageContext.request.contextPath}/images/black-logo.png" alt="Logo" class="signin-logo">
             </a>
 
             <h2>Sign in</h2>

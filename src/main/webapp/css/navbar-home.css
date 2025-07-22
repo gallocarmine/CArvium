@@ -20,7 +20,7 @@ body {
     padding-bottom: 10px;
 }
 
-.login-icon {
+.icons {
     position: absolute;
     right: 20px;
     top: 50%;
@@ -29,8 +29,48 @@ body {
     gap: 10px;
 }
 
-.login-icon i {
+.icons i {
     color: #F5F5F5;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+    .logo img {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .logo img {
+        width: 150px;
+    }
+
+    .login-icon i {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .logo img {
+        width: 120px;
+        padding-top: 10px;
+        padding-bottom: 5px;
+    }
+
+    .login-icon {
+        position: static;
+        margin-top: 10px;
+        align-self: flex-end;
+    }
+
+    .login-icon i {
+        font-size: 1.3rem;
+    }
 }

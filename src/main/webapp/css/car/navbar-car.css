@@ -21,7 +21,7 @@ body {
     padding-bottom: 10px;
 }
 
-.login-icon {
+.icons {
     position: absolute;
     right: 20px;
     top: 50%;
@@ -30,9 +30,9 @@ body {
     gap: 10px;
 }
 
-.login-icon i {
+.icons i {
     color: white;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     cursor: pointer;
 }
 
@@ -47,12 +47,7 @@ body {
     color: white;
     cursor: pointer;
     z-index: 1100;
-    transition: transform 0.3s ease;
     transform-origin: center center;
-}
-
-.menu-button:hover {
-    transform: rotate(90deg);
 }
 
 .menu-content {
@@ -86,15 +81,15 @@ body {
     font-size: 1.3rem;
     padding: 5px 10px;
     opacity: 0;
-    transition: color 0.2s, transform 1s ease, opacity 0.5s ease;
-    transform: translateX(-50px);
+    transition: color 0.2s, transform 1s cubic-bezier(0.4, 0, 1, 1), opacity 0.5s ease;
+    transform: translateY(500px);
     clip-path: polygon(0 0, 0 350%, 100% 0);
 }
 
 .menu-content.show p,
 .menu-content.show a {
     opacity: 1;
-    transform: translateX(0px);
+    transform: translateY(0px);
 }
 
 .menu-content p:hover,
@@ -168,8 +163,7 @@ body {
     padding: 0;
 }
 
-.brand-logo,
-.models-container {
+.brand-logo {
     position: relative;
     border-radius: 12px;
     width: 100%;
@@ -182,9 +176,33 @@ body {
     cursor: pointer;
 }
 
+.models-container {
+    position: relative;
+    width: 380px;
+    height: 150px;
+    border-radius: 12px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
 .brand-logo:hover,
 .models-container:hover {
     transform: scale(1.05);
+    background-color: white;
+}
+
+.brand-logo a,
+.models-container a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
 }
 
 .brand-logo img {
@@ -203,7 +221,7 @@ body {
 }
 
 .brand-logo h3,
-.models-container h3{
+.models-container h3 {
     position: absolute;
     top: 1px;
     left: 1px;
@@ -211,6 +229,13 @@ body {
     font-style: italic;
     opacity: 0;
     transition: opacity 0.3s ease;
+    color: black;
+    text-decoration: none;
+}
+
+.models-container h3 {
+    top: 20px;
+    left: 20px;
 }
 
 .brand-logo:hover h3,
