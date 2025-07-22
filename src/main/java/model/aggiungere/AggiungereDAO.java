@@ -140,7 +140,7 @@ public class AggiungereDAO {
     }
 
 
-    public int doRemoveById(int idCart, String spareId) {
+    public int doRemoveByCartSpare(int idCart, String spareId) {
 
         int result = 0;
 
@@ -151,9 +151,27 @@ public class AggiungereDAO {
             ps.setInt(1, idCart);
             ps.setString(2, spareId);
 
-            int rowsAffected = ps.executeUpdate();
+            result = ps.executeUpdate();
+        }
+        catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
 
-            if(rowsAffected > 0) result = 1;
+        return result;
+    }
+
+
+    public int doRemoveByID(int idCart) {
+
+        int result = 0;
+
+        try (Connection con = new ConPool().getConnection()) {
+
+            String sql = "DELETE FROM Aggiungere WHERE ID_Carrello = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idCart);
+
+            result = ps.executeUpdate();
         }
         catch (SQLException e) {
             System.err.println(e.getMessage());

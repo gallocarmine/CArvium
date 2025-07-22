@@ -11,7 +11,6 @@ import model.carrello.Carrello;
 import model.carrello.CarrelloDAO;
 import model.ricambi.Ricambi;
 import model.ricambi.RicambiDAO;
-import model.salvare.SalvareDAO;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -103,7 +102,7 @@ public class CartServlet extends HttpServlet {
 
                 if (action.equals("remove")) {
 
-                    int result = new AggiungereDAO().doRemoveById(idCart, spareId);
+                    int result = new AggiungereDAO().doRemoveByCartSpare(idCart, spareId);
 
                     if (result == 1) {
 
@@ -148,7 +147,7 @@ public class CartServlet extends HttpServlet {
                         }
                         else{
 
-                            new AggiungereDAO().doRemoveById(idCart, add.getIDRicambio());
+                            new AggiungereDAO().doRemoveByCartSpare(idCart, add.getIDRicambio());
                             Carrello cart = new CarrelloDAO().doRetrieveById(idCart);
                             Carrello newCart = new Carrello(idCart,
                                     cart.getCostoTotale() - (add.getQuantita() * spare.getPrezzo()),

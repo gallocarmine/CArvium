@@ -1,12 +1,10 @@
-package controller;
+package controller.shop;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import model.modelloAuto.ModelloAuto;
-import model.modelloAuto.ModelloAutoDAO;
 import model.ricambi.Ricambi;
 import model.ricambi.RicambiDAO;
 

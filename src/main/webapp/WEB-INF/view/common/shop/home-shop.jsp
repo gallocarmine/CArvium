@@ -69,7 +69,8 @@
 
     </div>
 
-    <button id="order-button">
+
+    <button onclick="orderCheckout()" id="order-button">
         <span>Fast Checkout</span><br>
         <span id="second-line"></span>
     </button>

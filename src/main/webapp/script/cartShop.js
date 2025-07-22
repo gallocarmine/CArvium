@@ -186,8 +186,74 @@ function updateCart() {
             const orderButton = document.getElementById('order-button');
             const secondLine = document.getElementById('second-line');
             secondLine.textContent = `${data.totalCost} $ • ${data.totalQuantity} spare`;
+            orderButton.disabled = false;
 
-            cart.classList.add('show');
+            if(data.totalQuantity === 0){
+
+                orderButton.disabled = true;
+            }
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+}
+
+
+function orderCheckout() {
+
+    const basePath = window.location.pathname.split('/')[1];
+    window.location.href = `/${basePath}/user/CheckoutServlet`;
+}
+
+
+function confirmPayment() {
+
+    const basePath = window.location.pathname.split('/')[1];
+
+    fetch(`/${basePath}/user/OrderServlet`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+
+            const button = document.getElementById('pay-button');
+            button.textContent = '';
+
+            const confirmContainer = document.querySelector('.confirm-payment');
+
+
+            if(data.result === 'accepted'){
+
+                button.innerHTML = 'Payment Accepted <i class="bi bi-bag-check-fill"></i>';
+                const result = document.createElement('p');
+                result.innerHTML = 'Order confirmed <i class="bi bi-box2-fill"></i>';
+                result.id = 'result-order';
+                button.onclick = null;
+                button.disabled = true;
+                confirmContainer.appendChild(result);
+            }
+            else{
+
+                button.innerHTML = 'Payment Declined <i class="bi bi-bag-x"></i>';
+                const result = document.createElement('p');
+                result.innerHTML = 'Order not confirmed <i class="bi bi-box2-fill"></i>';
+                result.id = 'result-order';
+                confirmContainer.appendChild(result);
+            }
+
+            const back = document.createElement('button');
+            back.innerHTML = 'Back to Shop <i class="bi bi-cart2"></i>';
+            back.id = 'back-shop';
+
+            const basePath = window.location.pathname.split('/')[1];
+            back.addEventListener('click', () => {
+                window.location.href = `/${basePath}/common/ShopServlet`;
+            });
+
+            confirmContainer.appendChild(back);
 
         })
         .catch(error => {
@@ -211,6 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         else {
             updateCart();
+            cart.classList.add('show');
         }
     });
 });

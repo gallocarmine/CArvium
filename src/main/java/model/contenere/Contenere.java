@@ -3,11 +3,11 @@ package model.contenere;
 public class Contenere {
 
     private int IDOrdine;
-    private int IDRicambi;
+    private String IDRicambi;
     private int quantita;
     private double prezzoUnitario;
 
-    public Contenere(int IDOrdine, int IDRicambi, int quantita, double prezzoUnitario) {
+    public Contenere(int IDOrdine, String IDRicambi, int quantita, double prezzoUnitario) {
         this.IDOrdine = IDOrdine;
         this.IDRicambi = IDRicambi;
         this.quantita = quantita;
@@ -19,7 +19,7 @@ public class Contenere {
         return IDOrdine;
     }
 
-    public int getIDRicambi() {
+    public String getIDRicambi() {
         return IDRicambi;
     }
 
@@ -36,7 +36,7 @@ public class Contenere {
         this.IDOrdine = IDOrdine;
     }
 
-    public void setIDRicambi(int IDRicambi) {
+    public void setIDRicambi(String IDRicambi) {
         this.IDRicambi = IDRicambi;
     }
 

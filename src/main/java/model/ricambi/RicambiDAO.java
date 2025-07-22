@@ -125,5 +125,27 @@ public class RicambiDAO {
 
         return spares;
     }
+
+
+    public int doUpdateQuantityById(String id, int quantity) {
+
+        int result = 0;
+
+        try (Connection con = new ConPool().getConnection()) {
+
+            String sql = "UPDATE Ricambi SET Quantità = ? WHERE ID = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, quantity);
+            ps.setString(2, id);
+
+            if(ps.executeUpdate() > 0) result = 1;
+        }
+        catch (SQLException e) {
+
+            System.err.println(e.getMessage());
+        }
+
+        return result;
+    }
 }
 

@@ -56,7 +56,7 @@ public class OrdineDAO {
 
                 int id = rs.getInt("ID");
                 int quantita = rs.getInt("Quantità");
-                double costoTotale = rs.getInt("CostoTotale");
+                double costoTotale = rs.getDouble("CostoTotale");
                 LocalDateTime data = rs.getTimestamp("Data").toLocalDateTime();
 
                 Ordine order = new Ordine(id, quantita, costoTotale, data, idCart);
@@ -73,21 +73,44 @@ public class OrdineDAO {
     }
 
 
+    public int doRetrieveLastId() {
+
+        int lastId = -1;
+
+        try (Connection con = new ConPool().getConnection()) {
+
+            String sql = "SELECT ID FROM Ordine ORDER BY ID DESC LIMIT 1";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+
+                lastId = rs.getInt("ID");
+            }
+
+            rs.close();
+        }
+        catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+        return lastId;
+    }
+
+
     public int doSave(Ordine order){
 
         int result = 0;
 
         try(Connection con = new ConPool().getConnection()){
 
-            String sql = "INSERT INTO Ordine (ID, Quantità, CostoTotale, Data, IDCarrello) VALUES (?,?,?,?,?)";
+            String sql = "INSERT INTO Ordine (Quantità, CostoTotale, Data, ID_Carrello) VALUES (?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
 
-            ps.setInt(1, order.getID());
-            ps.setInt(2, order.getQuantita());
-            ps.setDouble(3, order.getCostoTotale());
-            ps.setTimestamp(4, Timestamp.valueOf(order.getData()));
-            ps.setInt(5, order.getIDCarrello());
-
+            ps.setInt(1, order.getQuantita());
+            ps.setDouble(2, order.getCostoTotale());
+            ps.setTimestamp(3, Timestamp.valueOf(order.getData()));
+            ps.setInt(4, order.getIDCarrello());
 
             result = ps.executeUpdate();
         }
