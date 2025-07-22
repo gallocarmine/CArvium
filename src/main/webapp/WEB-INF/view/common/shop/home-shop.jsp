@@ -9,6 +9,13 @@
 
 <jsp:include page="navbar-home-shop.jsp"/>
 
+<div class="video-container">
+    <h2>Precision spare<br>
+        for exceptional performance</h2>
+    <video autoplay loop muted oncontextmenu="return false;">
+        <source src="${pageContext.request.contextPath}/video/home-shop.mp4" type="video/mp4">
+    </video>
+</div>
 
 <div class="filter-group">
 
@@ -75,6 +82,53 @@
         <span id="second-line"></span>
     </button>
 </div>
+
+
+<div class="spares-logo">
+
+    <div class="divider-section">
+        <div class="card-grid">
+            <div class="card">
+                <img src="${pageContext.request.contextPath}/images/shop/home-shop/breaks.png" alt="Breaks">
+            </div>
+            <div class="card">
+                <img src="${pageContext.request.contextPath}/images/shop/home-shop/car-body.png" alt="Car Body">
+            </div>
+            <div class="card">
+                <img src="${pageContext.request.contextPath}/images/shop/home-shop/chain.png" alt="Chain">
+            </div>
+            <div class="card">
+                <img src="${pageContext.request.contextPath}/images/shop/home-shop/clutch.png" alt="Clutch">
+            </div>
+            <div class="card">
+                <img src="${pageContext.request.contextPath}/images/shop/home-shop/cushioning.png" alt="Cushioning">
+            </div>
+        </div>
+    </div>
+
+    <div class="divider-section">
+        <div class="card-grid">
+            <div class="card">
+                <img src="${pageContext.request.contextPath}/images/shop/home-shop/electrical-system.png" alt="Electrical System">
+            </div>
+            <div class="card">
+                <img src="${pageContext.request.contextPath}/images/shop/home-shop/engine.png" alt="Engine">
+            </div>
+            <div class="card">
+                <img src="${pageContext.request.contextPath}/images/shop/home-shop/filters.png" alt="Filters">
+            </div>
+            <div class="card">
+                <img src="${pageContext.request.contextPath}/images/shop/home-shop/suspension.png" alt="Suspension">
+            </div>
+            <div class="card">
+                <img src="${pageContext.request.contextPath}/images/shop/home-shop/tires.png" alt="Tires">
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+</div>
+
 
 <jsp:include page="../footer.jsp"/>
 
