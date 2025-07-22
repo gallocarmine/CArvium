@@ -239,6 +239,13 @@ body {
     color: #aaa;
 }
 
+#quantity-error-msg{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: #ad0707;
+    font-size: 16px;
+}
+
 @media (max-width: 768px) {
     #filter-form {
         flex-direction: column;
