@@ -4,7 +4,7 @@
     bottom: 0;
     right: 0;
     width: 350px;
-    background-color: white;
+    background-color: #f9f9f9;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -22,4 +22,64 @@
     transform: translateX(0);
     pointer-events: auto;
     opacity: 1;
+}
+
+/* Wishlist car card container */
+#car-container {
+    background-color: #fefefe;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#car-container:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+#w-brand-title {
+    font-size: 0.9rem;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.3rem;
+}
+
+#w-model-id {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.5rem;
+}
+
+#w-img-model {
+    width: 100%;
+    max-width: 180px;
+    border-radius: 8px;
+    margin: 0.8rem 0;
+    transition: transform 0.3s ease;
+}
+
+#w-img-model:hover {
+    transform: scale(1.05);
+}
+
+#w-price-model {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #28a745;
+    margin: 0.4rem 0;
+}
+
+#w-category-title,
+#w-year-model {
+    font-size: 0.85rem;
+    color: #555;
+    margin: 0.2rem 0;
 }

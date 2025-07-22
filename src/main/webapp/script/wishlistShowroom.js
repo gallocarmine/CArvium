@@ -51,7 +51,7 @@ function addUIWishList(models){
     const contextPath = '/' + window.location.pathname.split('/')[1];
     const img = document.createElement('img');
     const sanitizedId = models.id.toLowerCase().replace(/\s+/g, '-');
-    img.src = `${contextPath}/images/home-car/models-auto/${sanitizedId}.png`
+    img.src = `${contextPath}/images/home-car/showroom/${sanitizedId}.png`
     img.id = 'w-img-model';
     car.appendChild(img);
 
@@ -156,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             else {
                 updateWishlist();
+                wishlist.classList.add('show');
             }
         });
     }
@@ -194,8 +195,6 @@ function updateWishlist(){
 
                 addUIWishList(model);
             });
-
-            wishlist.classList.add('show');
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
