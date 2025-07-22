@@ -67,7 +67,7 @@ function addUICart(spares, addQuantity) {
     const contextPath = '/' + window.location.pathname.split('/')[1];
     const img = document.createElement('img');
     const sanitizedId = spares.id.toLowerCase().replace(/\s+/g, '-');
-    img.src = `${contextPath}/images/home-car/models-auto/${sanitizedId}.png`
+    img.src = `${contextPath}/images/shop/model-spare/${sanitizedId}.png`
     img.id = 'c-img-spare';
     spare.appendChild(img);
 
