@@ -28,3 +28,55 @@
     color: #640000;
     font-weight: 600;
 }
+
+@media screen and (max-width: 1200px) {
+    .btn-group {
+        margin-top: 18px;
+    }
+
+    .btn-group a, button {
+        padding: 12px 18px;
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .btn-group {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .btn-group a, button {
+        padding: 10px 15px;
+        font-size: 16px;
+        margin: 5px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .btn-group {
+        margin-top: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-group a, button {
+        padding: 8px 12px;
+        font-size: 14px;
+        width: 90%;
+        text-align: center;
+        margin: 3px 0;
+        border-bottom: none;
+    }
+
+    .btn-group a:hover,
+    .btn-group button:hover,
+    #button-data.active,
+    #button-orders.active,
+    #button-dashboard.active {
+        border-bottom: none;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+    }
+}

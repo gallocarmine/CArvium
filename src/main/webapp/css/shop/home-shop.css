@@ -246,13 +246,233 @@ body {
     font-size: 16px;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 1200px) {
+    .video-container {
+        height: 500px;
+    }
+
+    .video-container h2 {
+        font-size: 30px;
+    }
+
+    .card {
+        max-width: 180px;
+    }
+
+    .divider {
+        font-size: 22px;
+        margin: 25px 0;
+    }
+
+    .shop-container {
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    #spare-card {
+        padding: 1.2rem;
+    }
+
+    #spare-id {
+        font-size: 1.1rem;
+    }
+
+    #img-spare {
+        max-width: 200px;
+    }
+
+    #price-spare {
+        font-size: 0.95rem;
+    }
+
+    #category-title,
+    #year-spare,
+    #quantity-available {
+        font-size: 0.85rem;
+    }
+
+    #cart-icon {
+        font-size: 1.3rem;
+    }
+
+    #filter-form {
+        max-width: 1000px;
+        margin-top: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .video-container {
+        height: 400px;
+    }
+
+    .video-container h2 {
+        font-size: 26px;
+        bottom: 20px;
+        left: 15px;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 10px;
+    }
+
+    .card {
+        max-width: 150px;
+    }
+
+    .divider {
+        font-size: 20px;
+        margin: 20px 0;
+    }
+
+    .shop-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    #spare-card {
+        padding: 1rem;
+    }
+
+    #brand-title {
+        font-size: 0.85rem;
+    }
+
+    #spare-id {
+        font-size: 1rem;
+    }
+
+    #img-spare {
+        max-width: 150px;
+        margin: 0.8rem 0;
+    }
+
+    #price-spare {
+        font-size: 0.9rem;
+    }
+
+    #category-title,
+    #year-spare,
+    #quantity-available {
+        font-size: 0.8rem;
+    }
+
+    #cart-icon {
+        font-size: 1.2rem;
+    }
+
     #filter-form {
         flex-direction: column;
         align-items: flex-start;
+        padding: 1rem;
+        gap: 0.8rem;
+        max-width: 100%;
+        margin-top: 2rem;
     }
 
     #filter-form label {
+        margin-right: 0;
         margin-top: 0.5rem;
+    }
+
+    #filter-form select,
+    #filter-form input[type="number"] {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.85rem;
+        width: 100%;
+    }
+
+    #quantity-error-msg {
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .video-container {
+        height: 300px;
+    }
+
+    .video-container h2 {
+        font-size: 22px;
+        bottom: 15px;
+        left: 10px;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 8px;
+    }
+
+    .card {
+        max-width: 100px;
+    }
+
+    .divider {
+        font-size: 18px;
+        margin: 15px 0;
+    }
+
+    .shop-container {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        padding: 0.8rem;
+    }
+
+    #spare-card {
+        padding: 0.8rem;
+    }
+
+    #brand-title {
+        font-size: 0.8rem;
+    }
+
+    #spare-id {
+        font-size: 1rem;
+    }
+
+    #img-spare {
+        max-width: 120px;
+        margin: 0.6rem 0;
+    }
+
+    #price-spare {
+        font-size: 0.85rem;
+    }
+
+    #category-title,
+    #year-spare,
+    #quantity-available {
+        font-size: 0.75rem;
+    }
+
+    #quantity-spare {
+        width: 50px;
+        padding: 0.2rem;
+        font-size: 0.8rem;
+    }
+
+    #cart-icon {
+        font-size: 1.1rem;
+    }
+
+    #filter-form {
+        padding: 0.8rem;
+        gap: 0.6rem;
+        margin-top: 1.5rem;
+    }
+
+    #filter-form select,
+    #filter-form input[type="number"] {
+        font-size: 0.8rem;
+    }
+
+    #quantity-error-msg {
+        font-size: 12px;
+        margin-top: 8px;
+        margin-bottom: 8px;
     }
 }

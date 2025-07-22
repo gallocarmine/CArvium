@@ -70,60 +70,60 @@ input:invalid:not(:placeholder-shown) {
 
 input[type="submit"],
 #editFields {
-  --from: #800000;
-  --to: #b20000;
-  display: block;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 28px;
-  font-family: Nanum Myeongjo, Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  color: #fff;
-  background: #000000;
-  background-size: 200% 100%;
-  background-position: 0 0;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 6px 18px rgba(128, 0, 0, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.3s ease;
-  width: 80%;
-  margin: 20px auto 0 auto;
-  position: relative;
+    --from: #800000;
+    --to: #b20000;
+    display: block;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    font-family: Nanum Myeongjo, Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    background: #000000;
+    background-size: 200% 100%;
+    background-position: 0 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.3s ease;
+    width: 80%;
+    margin: 20px auto 0 auto;
+    position: relative;
 }
 
 input[type="submit"]::before,
 #editFields::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: linear-gradient(135deg, var(--to), var(--from));
-  opacity: 0;
-  border-radius: 8px;
-  transition: opacity 0.3s ease;
-  z-index: -1;
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, var(--to), var(--from));
+    opacity: 0;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+    z-index: -1;
 }
 
 input[type="submit"]:hover,
 #editFields:hover {
-  background: linear-gradient(135deg, var(--from), var(--to));
-  background-position: 100% 0;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(128, 0, 0, 0.5);
+    background: linear-gradient(135deg, var(--from), var(--to));
+    background-position: 100% 0;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(128, 0, 0, 0.5);
 }
 
 input[type="submit"]:hover::before,
 #editFields:hover::before {
-  opacity: 1;
+    opacity: 1;
 }
 
 input[type="submit"]:active,
 #editFields:active {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 15px #640000FF;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px #640000FF;
 }
 
 .error {
@@ -132,4 +132,133 @@ input[type="submit"]:active,
     font-size: 16px;
     margin-top: 10px;
     text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+    .data-container {
+        max-width: 550px;
+        margin: 40px auto;
+        padding: 28px;
+    }
+
+    .data-container h2 {
+        font-size: 22px;
+        margin-bottom: 18px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="password"],
+    select {
+        padding: 7px 9px;
+        font-size: 13px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+        flex: 1 1 calc(50% - 8px);
+    }
+
+    input[type="submit"],
+    #editFields {
+        padding: 11px 25px;
+        font-size: 14px;
+        width: 70%;
+        margin-top: 18px;
+    }
+
+    .error {
+        font-size: 15px;
+        margin-top: 8px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .data-container {
+        max-width: 90%;
+        margin: 30px auto;
+        padding: 25px;
+    }
+
+    .data-container h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    form {
+        gap: 12px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="password"],
+    select {
+        flex: 1 1 100%;
+        padding: 6px 8px;
+        font-size: 13px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+        flex: 1 1 100%;
+    }
+
+    input[type="submit"],
+    #editFields {
+        padding: 10px 22px;
+        font-size: 13px;
+        width: 90%;
+        margin-top: 15px;
+    }
+
+    .error {
+        font-size: 14px;
+        margin-top: 7px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        padding: 10px;
+    }
+
+    .data-container {
+        max-width: 100%;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .data-container h2 {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    form {
+        gap: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="password"],
+    select {
+        padding: 5px 7px;
+        font-size: 12px;
+    }
+
+    input[type="submit"],
+    #editFields {
+        padding: 9px 20px;
+        font-size: 12px;
+        width: 100%;
+        margin-top: 12px;
+    }
+
+    .error {
+        font-size: 12px;
+        margin-top: 5px;
+    }
 }

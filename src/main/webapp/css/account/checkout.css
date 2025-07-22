@@ -1,6 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nanum Myeongjo', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
     background-color: #f5f5f5;
-    font-family: 'Nanum Myeongjo', Tahoma, Geneva, Verdana, sans-serif;
     padding: 2rem;
     margin: 0;
 }
@@ -170,4 +176,216 @@ body {
     background-color: #aaa;
     cursor: not-allowed;
     transform: none;
+}
+
+@media screen and (max-width: 1200px) {
+    body {
+        padding: 1.5rem;
+    }
+
+    .checkout-container {
+        max-width: 600px;
+        padding: 1.8rem;
+    }
+
+    .checkout-title {
+        font-size: 1.7rem;
+        margin-bottom: 1.3rem;
+    }
+
+    #payment-form {
+        gap: 1.3rem;
+    }
+
+    #payment-form label {
+        font-size: 0.9rem;
+    }
+
+    #payment-form input[type="text"],
+    #payment-form input[type="password"] {
+        padding: 0.55rem 0.75rem;
+        font-size: 0.95rem;
+    }
+
+    .payment-methods {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 0.8rem;
+    }
+
+    .payment-option {
+        padding: 0.7rem 0.9rem;
+    }
+
+    .payment-option label {
+        font-size: 0.85rem;
+    }
+
+    .payment-option img {
+        height: 18px;
+    }
+
+    .confirm-payment {
+        margin-top: 1.8rem;
+    }
+
+    #pay-button {
+        padding: 0.7rem 1.4rem;
+        font-size: 0.95rem;
+    }
+
+    #result-order {
+        font-size: 1.05rem;
+    }
+
+    #back-shop {
+        padding: 0.55rem 1.1rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    body {
+        padding: 1rem;
+    }
+
+    .checkout-container {
+        max-width: 500px;
+        padding: 1.5rem;
+    }
+
+    .checkout-title {
+        font-size: 1.6rem;
+        margin-bottom: 1.2rem;
+    }
+
+    #payment-form {
+        gap: 1.2rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .form-row .half-width {
+        min-width: 100%;
+    }
+
+    #payment-form label {
+        font-size: 0.85rem;
+    }
+
+    #payment-form input[type="text"],
+    #payment-form input[type="password"] {
+        padding: 0.5rem 0.7rem;
+        font-size: 0.9rem;
+    }
+
+    .payment-methods {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 0.7rem;
+    }
+
+    .payment-option {
+        padding: 0.65rem 0.8rem;
+    }
+
+    .payment-option label {
+        font-size: 0.8rem;
+    }
+
+    .payment-option img {
+        height: 16px;
+    }
+
+    .confirm-payment {
+        margin-top: 1.5rem;
+    }
+
+    #pay-button {
+        padding: 0.65rem 1.3rem;
+        font-size: 0.9rem;
+    }
+
+    #result-order {
+        font-size: 1rem;
+    }
+
+    #back-shop {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        padding: 0.8rem;
+    }
+
+    .checkout-container {
+        max-width: 100%;
+        padding: 1.2rem;
+        border-radius: 8px;
+    }
+
+    .checkout-title {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    #payment-form {
+        gap: 1rem;
+    }
+
+    #payment-form label {
+        font-size: 0.8rem;
+    }
+
+    #payment-form input[type="text"],
+    #payment-form input[type="password"] {
+        padding: 0.45rem 0.6rem;
+        font-size: 0.85rem;
+    }
+
+    .payment-methods {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+    }
+
+    .payment-option {
+        padding: 0.6rem 0.7rem;
+        gap: 0.4rem;
+    }
+
+    .payment-option input[type="radio"] {
+        transform: scale(1.1);
+    }
+
+    .payment-option label {
+        font-size: 0.75rem;
+    }
+
+    .payment-option img {
+        height: 14px;
+    }
+
+    .confirm-payment {
+        margin-top: 1.2rem;
+    }
+
+    #pay-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    #result-order {
+        font-size: 0.9rem;
+        margin-top: 1rem;
+    }
+
+    #back-shop {
+        padding: 0.45rem 0.9rem;
+        font-size: 0.8rem;
+        margin-top: 1rem;
+    }
 }
