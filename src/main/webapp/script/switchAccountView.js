@@ -56,9 +56,11 @@ function switchToOrder() {
         });
 
     document.querySelector(".data-container").style.display = "none";
+    document.querySelector(".dashboard-container").style.display = "none";
     document.querySelector(".orders-container").style.display = "block";
 
     document.getElementById("button-data")?.classList.remove("active");
+    document.getElementById("button-dashboard")?.classList.remove("active");
     document.getElementById("button-orders")?.classList.add("active");
 }
 
@@ -90,11 +92,12 @@ function switchToDashboard() {
             console.error('There was a problem with the fetch operation:', error);
         });
 
-
     document.querySelector(".data-container").style.display = "none";
+    document.querySelector(".orders-container").style.display = "none";
     document.querySelector(".dashboard-container").style.display = "block";
 
     document.getElementById("button-data")?.classList.remove("active");
+    document.getElementById("button-orders")?.classList.remove("active");
     document.getElementById("button-dashboard")?.classList.add("active");
 }
 

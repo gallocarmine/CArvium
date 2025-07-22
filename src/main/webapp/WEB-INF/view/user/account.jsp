@@ -16,9 +16,7 @@
 
     <button id="button-data" onclick=switchToData()>My Data</button>
 
-    <c:if test="${empty admin}">
-        <button id="button-orders" onclick=switchToOrder()>Orders</button>
-    </c:if>
+    <button id="button-orders" onclick=switchToOrder()>Orders</button>
 
     <c:if test="${not empty admin}">
         <button id="button-dashboard" onclick=switchToDashboard()>Dashboard</button>

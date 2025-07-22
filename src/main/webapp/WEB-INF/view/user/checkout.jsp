@@ -69,12 +69,11 @@
                 </label>
             </div>
         </div>
-
-        <div class="confirm-payment">
-            <input type="submit" value="Confirm Payment" onclick="confirmPayment(); return false;" id="pay-button">
-        </div>
-
     </form>
+
+    <div class="confirm-payment">
+        <input type="button" value="Confirm Payment" onclick="confirmPayment();" id="pay-button">
+    </div>
 
 </div>
 
