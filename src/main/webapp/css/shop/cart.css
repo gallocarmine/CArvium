@@ -1,0 +1,124 @@
+* {
+    font-family: Nanum Myeongjo, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cart-container {
+    position: fixed;
+    top: 79px;
+    bottom: 0;
+    right: 0;
+    width: 350px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 200;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    overflow-y: auto;
+    transform: translateX(100%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.8s ease;
+}
+
+.cart-container.show {
+    transform: translateX(0);
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.cart-container h3 {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}
+
+#order-button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+#order-button:hover {
+    background-color: #222;
+    transform: scale(1.03);
+}
+
+#order-button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#c-spare-card {
+    background-color: #fdfdfd;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+#c-img-spare {
+    width: 100%;
+    max-width: 140px;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+}
+
+#c-brand-title {
+    font-size: 0.85rem;
+    color: #777;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+}
+
+#c-spare-id {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #222;
+}
+
+#c-category-title,
+#c-year-model,
+#c-price-spare,
+#c-quantity-spare {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 0.2rem 0;
+}
+
+#c-price-spare {
+    color: #28a745;
+    font-weight: bold;
+}
+
+#c-cart-icon {
+    font-size: 1.3rem;
+    color: #d32f2f;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+#c-cart-icon:hover {
+    transform: scale(1.2);
+}

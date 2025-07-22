@@ -78,7 +78,7 @@ public class ModelloAutoDAO {
     }
 
 
-    public List<ModelloAuto> doRetrieveByFilter(String brand, String model, int year, int minPrice, int maxPrice) {
+    public List<ModelloAuto> doRetrieveByFilter(String brand, String category, int year, int minPrice, int maxPrice) {
 
         List<ModelloAuto> models = new ArrayList<>();
 
@@ -91,8 +91,8 @@ public class ModelloAutoDAO {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, brand);
             ps.setString(2, brand);
-            ps.setString(3, model);
-            ps.setString(4, model);
+            ps.setString(3, category);
+            ps.setString(4, category);
             ps.setInt(5, year);
             ps.setInt(6, year);
             ps.setInt(7, minPrice);

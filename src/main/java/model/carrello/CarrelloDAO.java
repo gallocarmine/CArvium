@@ -39,6 +39,33 @@ public class CarrelloDAO {
     }
 
 
+    public Carrello doRetrieveById(int id) {
+
+        Carrello cart = null;
+
+        try (Connection con = new ConPool().getConnection()) {
+            String sql = "SELECT * FROM Carrello WHERE ID = ?";
+            try (PreparedStatement ps = con.prepareStatement(sql)) {
+                ps.setInt(1, id);
+
+                try (ResultSet rs = ps.executeQuery()) {
+                    if (rs.next()) {
+                        double costoTotale = rs.getDouble("CostoTotale");
+                        int quantita = rs.getInt("Quantità");
+
+                        cart = new Carrello(id, costoTotale, quantita);
+                    }
+                }
+            }
+        }
+        catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+        return cart;
+    }
+
+
     public int doRetrieveLastID(){
 
         int id = 0;

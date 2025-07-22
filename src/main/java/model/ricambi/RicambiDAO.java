@@ -1,10 +1,8 @@
 package model.ricambi;
 
 import model.ConPool;
-import model.utente.Utente;
 
 import java.sql.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,16 +20,15 @@ public class RicambiDAO {
 
             while (rs.next()) {
 
-                int id = rs.getInt("ID");
-                String nome = rs.getString("Nome");
+                String id = rs.getString("ID");
                 double prezzo = rs.getDouble("Prezzo");
                 String categoria = rs.getString("Categoria");
                 int quantita = rs.getInt("Quantità");
                 int anno = rs.getInt("Anno");
-                int idModelloAuto = rs.getInt("ID_ModelloAuto");
-                int idMarcaAuto = rs.getInt("ID_MarcaAuto");
+                String idModelloAuto = rs.getString("ID_ModelloAuto");
+                String idMarcaAuto = rs.getString("ID_MarcaAuto");
 
-                Ricambi spare = new Ricambi(id, nome, prezzo, categoria, quantita, anno, idModelloAuto, idMarcaAuto);
+                Ricambi spare = new Ricambi(id, prezzo, categoria, quantita, anno, idModelloAuto, idMarcaAuto);
                 spares.add(spare);
             }
 
@@ -46,7 +43,7 @@ public class RicambiDAO {
     }
 
 
-    public Ricambi doRetrieveByID(int id){
+    public Ricambi doRetrieveById(String id){
 
         Ricambi spare = null;
 
@@ -54,21 +51,20 @@ public class RicambiDAO {
 
             String sql = "SELECT * FROM Ricambi WHERE ID = ?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
 
             while(rs.next()){
 
-                String nome = rs.getString("Nome");
                 double prezzo = rs.getDouble("Prezzo");
-                String categoria= rs.getString("Categoria");
+                String categoria = rs.getString("Categoria");
                 int quantita = rs.getInt("Quantità");
                 int anno = rs.getInt("Anno");
-                int idModelloAuto = rs.getInt("ID_ModelloAuto");
-                int idMarcaAuto = rs.getInt("ID_MarcaAuto");
+                String idModelloAuto = rs.getString("ID_ModelloAuto");
+                String idMarcaAuto = rs.getString("ID_MarcaAuto");
 
 
-                spare = new Ricambi(id, nome, prezzo, categoria, quantita, anno, idModelloAuto, idMarcaAuto);
+                spare = new Ricambi(id, prezzo, categoria, quantita, anno, idModelloAuto, idMarcaAuto);
             }
 
             rs.close();
@@ -79,6 +75,77 @@ public class RicambiDAO {
         }
 
         return spare;
+    }
+
+
+    public List<Ricambi> doRetrieveByFilter(String brand, String category, int year, int minPrice, int maxPrice) {
+
+        List<Ricambi> spares = new ArrayList<>();
+
+        try(Connection con = new ConPool().getConnection()){
+
+            String sql = "SELECT * FROM Ricambi WHERE (? = 'all' OR  Id_MarcaAuto = ?) " +
+                    "AND (? = 'all' OR  Categoria = ?) AND (? = 0 OR Anno = ?) " +
+                    "AND ((? = 0 OR Prezzo >= ?) AND (? = 0 OR Prezzo <= ?))";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, brand);
+            ps.setString(2, brand);
+            ps.setString(3, category);
+            ps.setString(4, category);
+            ps.setInt(5, year);
+            ps.setInt(6, year);
+            ps.setInt(7, minPrice);
+            ps.setInt(8, minPrice);
+            ps.setInt(9, maxPrice);
+            ps.setInt(10, maxPrice);
+
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+
+                String id = rs.getString("ID");
+                double prezzo = rs.getDouble("Prezzo");
+                String categoria = rs.getString("Categoria");
+                int quantita = rs.getInt("Quantità");
+                int anno = rs.getInt("Anno");
+                String idModelloAuto = rs.getString("ID_ModelloAuto");
+                String idMarcaAuto = rs.getString("ID_MarcaAuto");
+
+                Ricambi spare = new Ricambi(id, prezzo, categoria, quantita, anno, idModelloAuto, idMarcaAuto);
+                spares.add(spare);
+            }
+
+            rs.close();
+        }
+        catch(SQLException e){
+
+            System.err.println(e.getMessage());
+        }
+
+        return spares;
+    }
+
+
+    public int doUpdateQuantityById(String id, int quantity) {
+
+        int result = 0;
+
+        try (Connection con = new ConPool().getConnection()) {
+
+            String sql = "UPDATE Ricambi SET Quantità = ? WHERE ID = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, quantity);
+            ps.setString(2, id);
+
+            if(ps.executeUpdate() > 0) result = 1;
+        }
+        catch (SQLException e) {
+
+            System.err.println(e.getMessage());
+        }
+
+        return result;
     }
 }
 

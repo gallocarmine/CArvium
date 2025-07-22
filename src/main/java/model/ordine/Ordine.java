@@ -20,6 +20,14 @@ public class Ordine {
         this.IDCarrello = IDCarrello;
     }
 
+    public Ordine(int quantita, double costoTotale, LocalDateTime data, int IDCarrello) {
+
+        this.quantita = quantita;
+        this.costoTotale = costoTotale;
+        this.data = data;
+        this.IDCarrello = IDCarrello;
+    }
+
     public int getID() {
         return ID;
     }

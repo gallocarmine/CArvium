@@ -7,7 +7,6 @@ import model.aggiungere.Aggiungere;
 import model.aggiungere.AggiungereDAO;
 import model.carrello.Carrello;
 import model.carrello.CarrelloDAO;
-import model.ricambi.Ricambi;
 import model.ricambi.RicambiDAO;
 import model.utente.Utente;
 import model.utente.UtenteDAO;
@@ -77,32 +76,6 @@ public class SigninServlet extends HttpServlet {
                     new CarrelloDAO().doDeleteByID(idCart);
                     invalid = true;
                 }
-                else{
-
-                    HttpSession session = request.getSession();
-                    List<Aggiungere> spares = (List<Aggiungere>) session.getAttribute("spares");
-
-                    //transfer (if exists) the products from sessionCart to userCart
-                    if(spares != null) {
-
-                        cart.setQuantita(spares.stream().map(Aggiungere::getQuantita).reduce(Integer::sum).get());
-
-                        double totalCost = 0;
-
-                        AggiungereDAO addDAO = new AggiungereDAO();
-                        for (Aggiungere s : spares) {
-
-                            s.setIDCarrello(idCart);
-                            addDAO.doSave(s);
-
-                            //calculate cart totalCost with updated/latest price
-                            totalCost += s.getQuantita() * new RicambiDAO().doRetrieveByID(s.getIDRicambio()).getPrezzo();
-                        }
-
-                        cart.setCostoTotale(totalCost);
-                        new CarrelloDAO().doUpdateByID(cart);
-                    }
-                }
             }
         }
 
@@ -131,7 +104,6 @@ public class SigninServlet extends HttpServlet {
 
         return password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$");
     }
-
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

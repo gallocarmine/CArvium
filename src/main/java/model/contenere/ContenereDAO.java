@@ -21,7 +21,7 @@ public class ContenereDAO {
             while(rs.next()){
 
                 int idOrdine = rs.getInt("ID_Ordine");
-                int idRicambi = rs.getInt("ID_Ricambi");
+                String idRicambi = rs.getString("ID_Ricambi");
                 int quantita= rs.getInt("Quantità");
                 double prezzoUnitario = rs.getDouble("PrezzoUnitario");
 
@@ -50,7 +50,7 @@ public class ContenereDAO {
             PreparedStatement ps = con.prepareStatement(sql);
 
             ps.setInt(1, contain.getIDOrdine());
-            ps.setInt(2, contain.getIDRicambi());
+            ps.setString(2, contain.getIDRicambi());
             ps.setDouble(3, contain.getQuantita());
             ps.setDouble(4, contain.getPrezzoUnitario());
             result = ps.executeUpdate();
