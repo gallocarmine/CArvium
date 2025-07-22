@@ -29,7 +29,9 @@ function addToCart(spareId, quantityInput, clickedIcon) {
 
                     const errorMsg = document.createElement('p');
                     errorMsg.textContent = 'Quantity exceeds available stock when combined with current cart quantity.';
-                    errorMsg.id = 'quantity-error-msg';
+                    errorMsg.id = 'quantity-error-msg'
+
+                    setTimeout(() => { errorMsg.remove(); }, 3000);
 
                     const quantityInput = container.querySelector('#quantity-spare');
                     quantityInput.insertAdjacentElement('afterend', errorMsg);
@@ -81,29 +83,28 @@ function addUICart(spares, addQuantity) {
     year.id = 'c-year-model';
     spare.appendChild(year);
 
-    const price = document.createElement('p');
-    price.textContent = spares.prezzo + ' $';
-    price.id = 'c-price-spare'
-    spare.appendChild(price);
-
-
     const quantity = document.createElement('p');
     if(spares.quantita === 0){
 
         quantity.textContent = 'Out of stock';
+        quantity.style.color = '#ad0707';
+        quantity.id = 'c-quantity-spare'
+        spare.appendChild(quantity);
     }
     else{
+
+        const price = document.createElement('p');
+        price.textContent = spares.prezzo + ' $';
+        price.id = 'c-price-spare'
+        spare.appendChild(price);
+
         quantity.textContent = 'x' + addQuantity;
-    }
-
-    quantity.id = 'c-quantity-spare'
-    spare.appendChild(quantity);
-
-    if(spares.quantita !== 0){
 
         const icon = document.createElement('i');
         icon.className = 'bi-cart-dash';
         icon.id = 'c-cart-icon';
+        quantity.id = 'c-quantity-spare'
+        spare.appendChild(quantity);
 
         icon.addEventListener('click', function (event) {
 
@@ -231,8 +232,6 @@ function confirmPayment() {
                 const result = document.createElement('p');
                 result.innerHTML = 'Order confirmed <i class="bi bi-box2-fill"></i>';
                 result.id = 'result-order';
-                button.onclick = null;
-                button.disabled = true;
                 confirmContainer.appendChild(result);
             }
             else{
@@ -243,6 +242,10 @@ function confirmPayment() {
                 result.id = 'result-order';
                 confirmContainer.appendChild(result);
             }
+
+            button.onclick = null;
+            button.disabled = true;
+
 
             const back = document.createElement('button');
             back.innerHTML = 'Back to Shop <i class="bi bi-cart2"></i>';

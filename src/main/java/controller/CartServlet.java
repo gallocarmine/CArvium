@@ -299,7 +299,6 @@ public class CartServlet extends HttpServlet {
                     if (adds != null) {
 
                         List<Integer> addQuantity = adds.stream().map(Aggiungere::getQuantita).collect(Collectors.toList());
-                        int totalQuantity = addQuantity.stream().reduce(0, Integer::sum);
 
                         List<Ricambi> spares = new ArrayList<>();
 
@@ -307,9 +306,17 @@ public class CartServlet extends HttpServlet {
                         for (Aggiungere add : adds) {
 
                             Ricambi spare = new RicambiDAO().doRetrieveById(add.getIDRicambio());
+                            if(spare.getQuantita() != add.getQuantita()) {
+
+                                add.setQuantita(spare.getQuantita());
+                            }
+
                             totalCost += add.getQuantita() * spare.getPrezzo();
                             spares.add(spare);
                         }
+
+                        addQuantity = adds.stream().map(Aggiungere::getQuantita).collect(Collectors.toList());
+                        int totalQuantity = addQuantity.stream().reduce(0, Integer::sum);
 
                         if (spares != null) {
 

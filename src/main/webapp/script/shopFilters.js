@@ -77,49 +77,49 @@ function filterShop(brandFilter, categoryFilter) {
                 year.id = 'year-spare';
                 spare.appendChild(year);
 
-                const quantity = document.createElement('input');
-                quantity.id = 'quantity-spare';
-                quantity.type = 'number';
-                quantity.max = spareInfo.quantita;
-                quantity.min = '1';
-                quantity.textContent = '1';
-                quantity.value = '1';
-                quantity.step = '1';
-
-                quantity.addEventListener('input', function () {
-
-                    const val = parseInt(quantity.value);
-
-                    if (val > quantity.max) {
-                        quantity.value = quantity.max;
-                    }
-                    else{
-                        if (val < quantity.min) {
-                            quantity.value = quantity.min;
-                        }
-                    }
-                });
-
-                spare.appendChild(quantity);
-
                 const availableQuantity = document.createElement('p');
                 if(spareInfo.quantita === 0) {
 
                     availableQuantity.textContent = 'Out of stock';
+                    availableQuantity.style.color = '#ad0707';
+                    availableQuantity.id = 'quantity-available';
+                    spare.appendChild(availableQuantity);
                 }
-                else{
+                else {
+
+                    const quantity = document.createElement('input');
+                    quantity.id = 'quantity-spare';
+                    quantity.type = 'number';
+                    quantity.max = spareInfo.quantita;
+                    quantity.min = '1';
+                    quantity.textContent = '1';
+                    quantity.value = '1';
+                    quantity.step = '1';
+
+                    quantity.addEventListener('input', function () {
+
+                        const val = parseInt(quantity.value);
+
+                        if (val > quantity.max) {
+                            quantity.value = quantity.max;
+                        }
+                        else{
+                            if (val < quantity.min) {
+                                quantity.value = quantity.min;
+                            }
+                        }
+                    });
+
+                    spare.appendChild(quantity);
+
                     availableQuantity.textContent = 'Only ' + spareInfo.quantita + ' in stock available';
-                }
-                availableQuantity.id = 'quantity-available';
-                spare.appendChild(availableQuantity);
+                    availableQuantity.id = 'quantity-available';
+                    spare.appendChild(availableQuantity);
 
-                const price = document.createElement('p');
-                price.textContent = spareInfo.prezzo + ' $';
-                price.id = 'price-spare';
-                spare.appendChild(price);
-
-
-                if(spareInfo.quantita !== 0){
+                    const price = document.createElement('p');
+                    price.textContent = spareInfo.prezzo + ' $';
+                    price.id = 'price-spare';
+                    spare.appendChild(price);
 
                     const icon = document.createElement('i');
                     icon.className = 'bi-cart-plus';
@@ -136,6 +136,7 @@ function filterShop(brandFilter, categoryFilter) {
 
                     spare.appendChild(icon);
                 }
+
                 shop.appendChild(spare);
             });
         })
@@ -307,6 +308,33 @@ function changeOptionFilter(data) {
 
     const maxPrice = document.getElementById('max-price');
     maxPrice.placeholder = data.maxPrice;
+
+
+    minPrice.addEventListener('change', function () {
+
+        let min = Number(minPrice.placeholder);
+        let max = Number(maxPrice.placeholder);
+
+        const val = parseInt(minPrice.value);
+
+        if (val < min || val > max) {
+
+            minPrice.value = min;
+        }
+    });
+
+    maxPrice.addEventListener('change', function () {
+
+        let min = Number(minPrice.placeholder);
+        let max = Number(maxPrice.placeholder);
+
+        const val = parseInt(maxPrice.value);
+
+        if (val > max || val < min) {
+
+            maxPrice.value = max;
+        }
+    });
 }
 
 
