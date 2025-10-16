@@ -7,6 +7,9 @@ public class Contenere {
     private int quantita;
     private double prezzoUnitario;
 
+
+    public Contenere() {}
+
     public Contenere(int IDOrdine, String IDRicambi, int quantita, double prezzoUnitario) {
         this.IDOrdine = IDOrdine;
         this.IDRicambi = IDRicambi;

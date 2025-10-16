@@ -11,6 +11,8 @@ public class Ordine {
     private LocalDateTime data;
     private int IDCarrello;
 
+    public Ordine() {}
+
 
     public Ordine(int ID, int quantita, double costoTotale, LocalDateTime data, int IDCarrello) {
         this.ID = ID;

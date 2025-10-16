@@ -137,15 +137,7 @@
         font-weight: bold;
         color: #555;
     }
-
-    /* Adatta il contenuto di 'data-label' con i nomi delle colonne reali */
-    /* Esempio:
-    .orders-table td:nth-of-type(1):before { content: "ID Ordine"; }
-    .orders-table td:nth-of-type(2):before { content: "Data"; }
-    .orders-table td:nth-of-type(3):before { content: "Totale"; }
-    .orders-table td:nth-of-type(4):before { content: "Stato"; }
-    */
-
+    
     .orders-table tbody tr:hover {
         background-color: transparent;
     }

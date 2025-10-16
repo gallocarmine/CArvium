@@ -11,6 +11,9 @@ public class Ricambi {
     private String IDModelloAuto;
     private String IDMarcaAuto;
 
+
+    public Ricambi() {}
+
     public Ricambi(String ID, double prezzo, String categoria, int quantita, int anno, String IDModelloAuto, String IDMarcaAuto) {
         this.ID = ID;
         this.prezzo = prezzo;

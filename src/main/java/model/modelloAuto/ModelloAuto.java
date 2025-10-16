@@ -12,6 +12,8 @@ public class ModelloAuto {
     private int anno;
     private String pathanme;
 
+    public ModelloAuto() {}
+
     public ModelloAuto(String ID, String IDMarcaAuto, double prezzo, String categoria, String descrizione, int anno) {
 
         this.ID = ID;

@@ -6,6 +6,11 @@ public class Aggiungere {
     private String IDRicambio;
     private int quantita;
 
+
+    public Aggiungere(){
+
+    }
+
     public Aggiungere(int IDCarrello, String IDRicambio, int quantita) {
 
         this.IDCarrello = IDCarrello;

@@ -6,6 +6,8 @@ public class Salvare {
     private String IDMarcaAuto;
     private int IDUtente;
 
+    public Salvare() {}
+
     public Salvare(String IDModelloAuto, String IDMarcaAuto, int IDUtente) {
         this.IDModelloAuto = IDModelloAuto;
         this.IDMarcaAuto = IDMarcaAuto;

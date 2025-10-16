@@ -4,6 +4,8 @@ public class MarcaAuto {
 
     private String ID;
 
+    public MarcaAuto() {}
+
     public MarcaAuto(String ID) {
         this.ID = ID;
     }
