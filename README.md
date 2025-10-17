@@ -12,17 +12,17 @@ making it **accessible to enthusiasts and professionals alike**.
 
 ---
 
-# 📁 Index
+# 📁 *Index*
 
  1.[Demo](#-demo)  
  2.[Software Stack & My Contributions](#software-stack--my-contributions)  
  3.[Features & System](#-features--system)  
- 4.[Installation](#-installation)  
+ 4.[Installation](#installation)  
  5.[License](#-license)
 
 ---
 
-# 🚀 Demo
+# 🚀 *Demo*
 <div align="center">
   <a href="https://www.youtube.com/watch?v=gy2K0Q0AjhM" target="_blank">
     <img src="https://img.youtube.com/vi/gy2K0Q0AjhM/maxresdefault.jpg" alt=" " width="800"/>
@@ -31,7 +31,7 @@ making it **accessible to enthusiasts and professionals alike**.
 
 ---
 
-# Software Stack & My contributions
+# *Software Stack & My contributions*
 
 **Architecture**: MVC  
 **Backend**: Java  
@@ -46,7 +46,7 @@ making it **accessible to enthusiasts and professionals alike**.
 
 ---
 
-# 🧩 Features & System
+# 🧩 *Features & System*
 
 ### 🔐 **Login / Sign Up**
 The system includes a complete **authentication and registration** module that allows users to securely create an account and access the platform.  
@@ -104,7 +104,7 @@ The shopping cart is designed for an **intuitive and dynamic experience**:
 - **Persistent cart storage**, keeping items saved across sessions.
 ---
 
-# ⚙️ Installation
+# *Installation*
 
 Follow these steps to run **CArvium** locally:
 
@@ -148,6 +148,6 @@ Start Tomcat and open the application in your browser:
 
 ___
 
-# 📑 License
+# 📑 *License*
 © 2025 Gallo Carmine — All Rights Reserved.  
 This project is proprietary and may **not** be copied, modified, or distributed without explicit permission by author.
