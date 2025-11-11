@@ -33,7 +33,7 @@ making it **accessible to enthusiasts and professionals alike**.
 
 # *Software Stack & My contributions*
 
-**Architecture**: MVC  
+**Architecture**: 3-Tier 
 **Backend**: Java  
 **Frontend**: JSP, Javascript, HTML, CSS  
 **Database**: MySQL  
