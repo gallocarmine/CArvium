@@ -8,7 +8,9 @@ making it **accessible to enthusiasts and professionals alike**.
 > *Your exclusive destination for high-end vehicles*
 
 
-***(The type of web software (e-commerce) was constrained by the course)***
+***(The type of web software (e-commerce)  was constrained by the course. 
+To ensure a deep understanding of core web principles, the course mandated the use of low-level technologies, 
+specifically requiring raw Servlets instead of high-level frameworks.)***
 
 ---
 
@@ -33,15 +35,15 @@ making it **accessible to enthusiasts and professionals alike**.
 
 # *Software Stack & My contributions*
 
-**Architecture**: MVC  
-**Backend**: Java  
-**Frontend**: JSP, Javascript, HTML, CSS  
-**Database**: MySQL  
+**Architecture**: _3-Tier_  
+**Backend**: _Java_  
+**Frontend**: _JSP_, _Javascript_, _HTML_, _CSS_  
+**Database**: _MySQL_  
 
- [![CodeTime Badge](https://shields.jannchie.com/endpoint?style=for-the-badge&color=&url=https%3A%2F%2Fapi.codetime.dev%2Fv3%2Fusers%2Fshield%3Fuid%3D33409%26project%3Dgallo-esposito_pj%26language%3Djava)](https://codetime.dev)
+ [![CodeTime Badge](https://shields.jannchie.com/endpoint?style=for-the-badge&color=&url=https%3A%2F%2Fapi.codetime.dev%2Fv3%2Fusers%2Fshield%3Fuid%3D33409%26project%3Dgallo-esposito_pj%26language%3Djava)](https://codetime.dev)  
  [![CodeTime Badge](https://shields.jannchie.com/endpoint?style=for-the-badge&color=blue&url=https%3A%2F%2Fapi.codetime.dev%2Fv3%2Fusers%2Fshield%3Fuid%3D33409%26project%3Dgallo-esposito_pj%26language%3Djavascript)](https://codetime.dev)  
- [![CodeTime Badge](https://shields.jannchie.com/endpoint?style=for-the-badge&color=blue&url=https%3A%2F%2Fapi.codetime.dev%2Fv3%2Fusers%2Fshield%3Fuid%3D33409%26project%3Dgallo-esposito_pj%26language%3Djsp)](https://codetime.dev)
- [![CodeTime Badge](https://shields.jannchie.com/endpoint?style=for-the-badge&color=blue&url=https%3A%2F%2Fapi.codetime.dev%2Fv3%2Fusers%2Fshield%3Fuid%3D33409%26project%3Dgallo-esposito_pj%26language%3Dcss)](https://codetime.dev)
+ [![CodeTime Badge](https://shields.jannchie.com/endpoint?style=for-the-badge&color=blue&url=https%3A%2F%2Fapi.codetime.dev%2Fv3%2Fusers%2Fshield%3Fuid%3D33409%26project%3Dgallo-esposito_pj%26language%3Djsp)](https://codetime.dev)  
+ [![CodeTime Badge](https://shields.jannchie.com/endpoint?style=for-the-badge&color=blue&url=https%3A%2F%2Fapi.codetime.dev%2Fv3%2Fusers%2Fshield%3Fuid%3D33409%26project%3Dgallo-esposito_pj%26language%3Dcss)](https://codetime.dev)  
  [![CodeTime Badge](https://shields.jannchie.com/endpoint?style=for-the-badge&color=blue&url=https%3A%2F%2Fapi.codetime.dev%2Fv3%2Fusers%2Fshield%3Fuid%3D33409%26project%3Dgallo-esposito_pj%26language%3Dsql)](https://codetime.dev)
 
 ---
@@ -110,7 +112,7 @@ Follow these steps to run **CArvium** locally:
 
 ### 1. Prerequisites
 - Java JDK 21+
-- Apache Tomcat 9+ 
+- Apache Tomcat 11 
 - Apache Maven
 - MySQL 8+
 - Git
@@ -137,12 +139,12 @@ mvn clean package
 This will generate a gallo-esposito_pj-1.0-SNAPSHOT.war file in the target/ folder.
 
 ### 5. Deploy to Tomcat
-Copy the WAR file to Tomcat’s webapps folder OR run directly with Maven:
+Copy the WAR file to Tomcat’s webapps folder and on bin/ folder run:
 ```bash
-mvn tomcat7:run
+./startup.sh
 ```
 
-Start Tomcat and open the application in your browser:
+Open the application in your browser:
 - HTTP (default): http://localhost:8080/gallo_esposito_pj_war/
 - HTTPS (if configured): https://localhost:8443/gallo_esposito_pj_war/
 
