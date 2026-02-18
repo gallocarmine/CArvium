@@ -1,28 +1,33 @@
 
 ![Logo](src/main/webapp/images/white-logo.png)
 
+<div>
+  <img src="src/main/webapp/video/home-car.gif" width="800" alt="Race GIF">
+</div>
+
 **CArvium** is a *web platform* dedicated to the **luxury automotive** world, designed to provide a **complete** and **intuitive** service.
 The website allows users to **easily purchase high-quality spare parts** for premium car models, ensuring **perfect compatibility** and **exceptional quality**.
 The project combines **functionality**, **elegant design**, and **innovation** to *enhance the online shopping experience* in the luxury automotive sector,
 making it **accessible to enthusiasts and professionals alike**.
 > *Your exclusive destination for high-end vehicles*
 
-
-***(The type of web software (e-commerce)  was constrained by the course. 
-To ensure a deep understanding of core web principles, the course mandated the use of low-level technologies, 
+***(The type of web software (e-commerce)  was constrained by the course.
+To ensure a deep understanding of core web principles, the course mandated the use of low-level technologies,
 specifically requiring raw Servlets instead of high-level frameworks.)***
 
----
+<br>
 
 # 📁 *Index*
 
- 1.[Demo](#-demo)  
- 2.[Software Stack & My Contributions](#software-stack--my-contributions)  
- 3.[Features & System](#-features--system)  
- 4.[Installation](#installation)  
- 5.[License](#-license)
+1. [Demo](#-demo)
+2. [Software Stack](#software-stack)
+3. [Features & System](#-features--system)
+4. [Installation](#installation)
+5. [License](#-license)
 
----
+--- 
+
+<br>
 
 # 🚀 *Demo*
 <div align="center">
@@ -33,27 +38,39 @@ specifically requiring raw Servlets instead of high-level frameworks.)***
 
 ---
 
-# *Software Stack & My contributions*
+<br>
 
-**Architecture**: _3-Tier_  
-**Backend**: _Java_  
-**Frontend**: _JSP_, _Javascript_, _HTML_, _CSS_  
-**Database**: _MySQL_  
 
- [![CodeTime Badge](https://shields.jannchie.com/endpoint?style=for-the-badge&color=&url=https%3A%2F%2Fapi.codetime.dev%2Fv3%2Fusers%2Fshield%3Fuid%3D33409%26project%3Dgallo-esposito_pj%26language%3Djava)](https://codetime.dev)  
- [![CodeTime Badge](https://shields.jannchie.com/endpoint?style=for-the-badge&color=blue&url=https%3A%2F%2Fapi.codetime.dev%2Fv3%2Fusers%2Fshield%3Fuid%3D33409%26project%3Dgallo-esposito_pj%26language%3Djavascript)](https://codetime.dev)  
- [![CodeTime Badge](https://shields.jannchie.com/endpoint?style=for-the-badge&color=blue&url=https%3A%2F%2Fapi.codetime.dev%2Fv3%2Fusers%2Fshield%3Fuid%3D33409%26project%3Dgallo-esposito_pj%26language%3Djsp)](https://codetime.dev)  
- [![CodeTime Badge](https://shields.jannchie.com/endpoint?style=for-the-badge&color=blue&url=https%3A%2F%2Fapi.codetime.dev%2Fv3%2Fusers%2Fshield%3Fuid%3D33409%26project%3Dgallo-esposito_pj%26language%3Dcss)](https://codetime.dev)  
- [![CodeTime Badge](https://shields.jannchie.com/endpoint?style=for-the-badge&color=blue&url=https%3A%2F%2Fapi.codetime.dev%2Fv3%2Fusers%2Fshield%3Fuid%3D33409%26project%3Dgallo-esposito_pj%26language%3Dsql)](https://codetime.dev)
+# *Software Stack*
 
----
+<img src="https://img.shields.io/badge/Architecture-3--Tier-00599C?style=for-the-badge&logo=server&logoColor=white" alt="3-Tier Architecture" height="35"/>
+
+### Backend
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" width="45" height="45"/>
+
+### Frontend
+<p align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="45" height="45"/>
+  &nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" width="45" height="45"/>
+  &nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" width="45" height="45"/>
+</p>
+
+### Database
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" width="45" height="45"/>
+
+--- 
+
+<br>
+
 
 # 🧩 *Features & System*
 
 ### 🔐 **Login / Sign Up**
 The system includes a complete **authentication and registration** module that allows users to securely create an account and access the platform.  
 Data validation and input control are implemented during registration.  
-Once logged in, users can acces reserved sections such as profile management, wishlist, and order history. 
+Once logged in, users can acces reserved sections such as profile management, wishlist, and order history.
 
 ---
 
@@ -83,9 +100,9 @@ Users can perform advanced searches using a system of **intelligent filters**, a
 - Brand
 - Model
 - Year
-- Category or component type  
+- Category or component type
 - Price range (Min - Max)  
-The search engine is optimized to **always** deliver **relevant and real-time results**, improving overall navigation efficiency.
+  The search engine is optimized to **always** deliver **relevant and real-time results**, improving overall navigation efficiency.
 ---
 
 ### ❤️ **Wishlist**
@@ -96,7 +113,7 @@ Logged users can **save their favorite cars** from the showroom to a **personal 
 ### 🛠️ **Spare Parts Shop**
 A dedicated section allows users to **purchase genuine spare parts and accessories** for luxury vehicles.  
 Users can filter parts by brand, model, and category price range, and add them to the cart.  
-This section ensures a **reliable and comprehensive shopping experience** with original, high-quality components. 
+This section ensures a **reliable and comprehensive shopping experience** with original, high-quality components.
 
 ---
 
@@ -106,13 +123,15 @@ The shopping cart is designed for an **intuitive and dynamic experience**:
 - **Persistent cart storage**, keeping items saved across sessions.
 ---
 
+<br>
+
 # *Installation*
 
 Follow these steps to run **CArvium** locally:
 
 ### 1. Prerequisites
 - Java JDK 21+
-- Apache Tomcat 11 
+- Apache Tomcat 11
 - Apache Maven
 - MySQL 8+
 - Git
@@ -122,7 +141,7 @@ Follow these steps to run **CArvium** locally:
 git clone https://github.com/gallocarmine/CArvium.git
 cd CArvium
 ```
-### 3. Start MySQL and Create a new Database 
+### 3. Start MySQL and Create a new Database
 
 Import the database schema and initial data:
 ```
@@ -149,6 +168,8 @@ Open the application in your browser:
 - HTTPS (if configured): https://localhost:8443/gallo_esposito_pj_war/
 
 ___
+
+<br> 
 
 # 📑 *License*
 © 2025 Gallo Carmine — All Rights Reserved.  
