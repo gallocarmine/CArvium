@@ -19,11 +19,11 @@ specifically requiring raw Servlets instead of high-level frameworks.)***
 
 # 📁 *Index*
 
-1. [Demo](#-demo)
-2. [Software Stack](#software-stack)
-3. [Features & System](#-features--system)
-4. [Installation](#installation)
-5. [License](#-license)
+- [Demo](#-demo)
+- [Software Stack](#software-stack)
+- [Features & System](#-features--system)
+- [Installation](#-installation)
+- [License](#-license)
 
 --- 
 
@@ -43,22 +43,15 @@ specifically requiring raw Servlets instead of high-level frameworks.)***
 
 # *Software Stack*
 
-<img src="https://img.shields.io/badge/Architecture-3--Tier-00599C?style=for-the-badge&logo=server&logoColor=white" alt="3-Tier Architecture" height="35"/>
-
-### Backend
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" width="45" height="45"/>
-
-### Frontend
-<p align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="45" height="45"/>
-  &nbsp;
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" width="45" height="45"/>
-  &nbsp;
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" width="45" height="45"/>
+<p align="center">
+  <img src="https://img.shields.io/badge/Architecture-3--Tier-00599C?style=for-the-badge&logo=server&logoColor=white" alt="3-Tier Architecture" height="35"/>
+  <br><br>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" width="45" height="45"/> &nbsp;&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="45" height="45"/> &nbsp;&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" width="45" height="45"/> &nbsp;&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" width="45" height="45"/> &nbsp;&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" width="45" height="45"/>
 </p>
-
-### Database
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" width="45" height="45"/>
 
 --- 
 
@@ -125,7 +118,7 @@ The shopping cart is designed for an **intuitive and dynamic experience**:
 
 <br>
 
-# *Installation*
+# 📦 *Installation*
 
 Follow these steps to run **CArvium** locally:
 
